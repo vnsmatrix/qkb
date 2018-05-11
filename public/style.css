@@ -67,8 +67,16 @@ nav {
     display: flex;
     flex-flow: row;
     width: 12%;
-    padding-right: 37px;
+    padding-right: 17px;
 
+}
+
+footer {
+    position: fixed;
+    text-align: right;
+    right: 0vw;
+    bottom: 0;
+    padding-right: 44px;
 }
 
 .nav-v {
@@ -119,8 +127,10 @@ nav {
 /*kitty carousel*/
 #kitties {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 88vh;
+    overflow: hidden;
+    padding: 13px;
 }
 
 .kitty {

@@ -23,7 +23,7 @@ export default class App extends React.Component {
             <BrowserRouter>
             <div id="app-container">
                 <nav>
-                    <Link className="home-logo" to="/home">QKB</Link>
+                    <Link className="home-logo" to="/">QKB</Link>
                     <div className="nav-h">
                         ⟨
                         <Link to="/about">About</Link>
@@ -59,6 +59,7 @@ export default class App extends React.Component {
                         <Route exact path="/artists" component={Artists} />
                     </div>
                 </div>
+                <footer> © QKB, 2018.</footer>
             </div>
             </BrowserRouter>
         );
