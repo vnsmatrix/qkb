@@ -1,0 +1,244 @@
+body {
+    font-size: 14px;
+    font-weight: lighter;
+    left: 0;
+    margin: 0;
+    font-family: 'Palanquin', sans-serif;
+}
+
+.strog {
+    font-weight: bold;
+}
+
+input {
+    text-align: center;
+    padding: 3px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    color: lime;
+    font-weight: lighter;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: line-through;
+    color: black;
+}
+
+/* NAV */
+
+nav {
+
+    z-index: 3333;
+}
+
+.home-logo {
+    position: fixed;
+    top: 13px;
+    margin-left: 13px;
+    margin-right: 33px;
+    color: fuchsia;
+    text-shadow: black;
+}
+
+.nav-h {
+    z-index: 333;
+    position: fixed;
+    top: 13px;
+    left: 66px;
+    width: 66vw;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    /* border: 1px dotted orange; */
+}
+
+.nav-h-r {
+    position: fixed;
+    text-align: right;
+    top: 13px;
+    right: 0px;
+    display: flex;
+    flex-flow: row;
+    width: 12%;
+    padding-right: 37px;
+
+}
+
+.nav-v {
+    z-index: 1;
+    margin-top: 33px;
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    margin-left: 5px;
+    top: 33px;
+    height: 333px;
+    color: palegreen;
+    /* border: 1px dotted orange; */
+}
+
+
+
+/* CONTENT */
+.content {
+    padding: 0 7px;
+    text-align: justify;
+    /* border: 1px dotted orange; */
+    position: relative;
+    top: 66px;
+    left: 66px;
+    height: 100%;
+    width: 88%;
+}
+
+.home {
+    overflow: hidden;
+    width: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#quote {
+    font-style: italic;
+    text-align: right;
+    margin: 33px;
+}
+
+/*kitty carousel*/
+#kitties {
+    position: relative;
+    width: 100%;
+    height: 88vh;
+}
+
+.kitty {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    transition-property: transform;
+    transition-duration: 0s;
+}
+
+.kitty img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.kitty.exit {
+    transform: translateX(-100%);
+    transition-duration: 1s;
+}
+
+.kitty.onscreen {
+    transform: translateX(0);
+    transition-duration: 1s;
+}
+
+#dots {
+    position: absolute;
+    width: 100%;
+    left:0;
+    bottom:20px;
+    text-align: center;
+
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px white solid;
+    margin-left: 0 5px;
+    border-radius: 50%;
+    margin: 3px;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+
+
+/* @group Blink */
+.blink {
+	-webkit-animation: blink .75s linear infinite;
+	-moz-animation: blink .75s linear infinite;
+	-ms-animation: blink .75s linear infinite;
+	-o-animation: blink .75s linear infinite;
+	 animation: blink .75s linear infinite;
+}
+@-webkit-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-moz-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-ms-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@-o-keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+@keyframes blink {
+	0% { opacity: 1; }
+	50% { opacity: 1; }
+	50.01% { opacity: 0; }
+	100% { opacity: 0; }
+}
+/* @end */
+
+/* @rainbow */
+
+@-webkit-keyframes rainbow{
+    20%{color: coral;}
+	40%{color: antiquewhite;}
+	60%{color: #C5EAD2;}
+	80%{color: #a8bfe3;}
+	100%{color: plum;}
+}
+
+@-ms-keyframes rainbow{
+    20%{color: palevioletred;}
+	40%{color: antiquewhite;}
+	60%{color: #C5EAD2;}
+	80%{color: #a8bfe3;}
+	100%{color: plum;}
+}
+
+@keyframes rainbow{
+    20%{color: palevioletred;}
+	40%{color: antiquewhite;}
+	60%{color: #C5EAD2;}
+	80%{color: #a8bfe3;}
+	100%{color: plum;}
+}
+/* @end */

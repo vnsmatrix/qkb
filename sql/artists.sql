@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS artists;
+
+CREATE TABLE artists (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(333) NOT NULL,
+    email VARCHAR(333) NOT NULL,
+    medium VARCHAR(333) NOT NULL,
+    img VARCHAR(333) NOT NULL,
+    bio VARCHAR(333) NOT NULL
+);
