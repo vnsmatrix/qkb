@@ -1,4 +1,4 @@
-//todo: fix carousel
+//todo: fix carousel dots
 
 import React from 'react';
 

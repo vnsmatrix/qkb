@@ -1,8 +1,8 @@
-CONCEPT
+CONCEPT:
 
-<b>Queer Kunst Berlin</b> is an online multi-disciplinary art platform promoting emerging and established queer talents. We bring you art made by queers, curated by queers, with a strong emphasis in femme, poc, sw, nb & trans-made art. A common place and a growing community where we collaborate, nurture and empower each other.
+QKB (Queer Kunst Berlin) is an online multi-disciplinary art platform promoting emerging and established LGTBQ+ talents. We bring you art made by queers, curated by queers, with a strong emphasis in femme, POC, SW, non-binary & trans-made art. A common place and a growing community where we collaborate, nurture and empower each other.
 
 
-TECH
+TECH:
 
 React, Node, Express, SQL, HTML, CSS.

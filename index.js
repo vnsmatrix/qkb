@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {register, getMatchesByEmail, getInfo, insertImage, editBio, acceptFR, cancelFR, sendFR, seeFR, rejectFR, deleteFR} = require('./db')
+const {getArtists, getArtistsByMedium} = require('./db')
 
 //upload files stuff:
 const multer = require('multer');
@@ -79,19 +79,12 @@ function requireLogin (req, res, next) {
 
 //MY ROUTES:
 
-app.get('/user', requireLogin, function(req,res) {
-    console.log(req.session.user.id);
-    getInfo(req.session.user.id).then (result => {
-        console.log("result.rows from getInfo", result.rows);
+app.get('/artists', function(req,res) {
+    getArtists().then (result => {
+        console.log("//////getArtists result.rows", result.rows);
         res.json({
             success: true,
-            id: result.rows[0].id,
-            first: result.rows[0].first,
-            last: result.rows[0].last,
-            email: result.rows[0].email,
-            pass: result.rows[0].pass,
-            img: result.rows[0].img,
-            bio: result.rows[0].bio
+            artists: result.rows
         })
     }).catch(e => {
         console.log(e);

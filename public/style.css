@@ -45,6 +45,8 @@ nav {
     margin-right: 33px;
     color: fuchsia;
     text-shadow: black;
+    font-size: 14px;
+    text-decoration-color: lime;
 }
 
 .nav-h {
@@ -72,14 +74,15 @@ nav {
 }
 
 footer {
-    position: fixed;
+    display: block;
     text-align: right;
     right: 0vw;
-    bottom: 0;
-    padding-right: 44px;
+    bottom: 0px;
+    padding-right: 13px;
 }
 
 .nav-v {
+    color: gray;
     z-index: 1;
     margin-top: 33px;
     position: fixed;
@@ -89,7 +92,7 @@ footer {
     justify-content: space-around;
     writing-mode: vertical-rl;
     text-orientation: upright;
-    margin-left: 5px;
+    margin-left: 13px;
     top: 33px;
     height: 333px;
     color: palegreen;
@@ -124,7 +127,7 @@ footer {
     margin: 33px;
 }
 
-/*kitty carousel*/
+/*HOME*/
 #kitties {
     position: relative;
     width: 100vw;
@@ -184,7 +187,45 @@ footer {
     background-color: white;
 }
 
+/* ARTISTS todo: center imgs*/
 
+.artists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.artist-prev-container {
+    width: 333px;
+    height: auto;
+    padding: 13px;
+}
+
+.artist-prev-container :hover {
+    background-color: lime;
+}
+
+.artist-prev {
+    padding: 7px;
+}
+
+.artist-img {
+
+}
+
+.artist-img img {
+    width: 303px;
+}
+
+.artist-medium {
+    font-style: italic;
+}
+
+.artist-name {
+    font-weight: bold;
+    font-size: 16px;
+}
 
 /* @group Blink */
 .blink {

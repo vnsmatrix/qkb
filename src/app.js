@@ -40,9 +40,11 @@ export default class App extends React.Component {
                         </div>
                     </div>
                     <div className="nav-v">
+
                         <a href="https://twitter.com/">Twitter</a>
                         <a href="https://instagram.com/">IG</a>
                         <a href="https://facebook.com/">FB</a>
+
                     </div>
                 </nav>
 
@@ -59,7 +61,7 @@ export default class App extends React.Component {
                         <Route exact path="/artists" component={Artists} />
                     </div>
                 </div>
-                <footer> © QKB, 2018.</footer>
+
             </div>
             </BrowserRouter>
         );
