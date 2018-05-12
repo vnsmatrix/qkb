@@ -85,7 +85,7 @@ export default class App extends React.Component {
                         <Route path="/poetry" component={Poetry} />
                         <Route path="/illustration" component={Illustration} />
                         <Route path="/mixedmedia" component={MixedMedia} />
-                        <Route path="/artwork/" component={Artwork} />
+                        <Route exact path="/artwork/:id" component={Artwork} />
 
                     </div>
                 </div>

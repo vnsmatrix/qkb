@@ -35,7 +35,10 @@ export default class Photography extends React.Component {
                     <div className="prev-container">
                         <div className="prev">
                             <div className="prev-img">
-                                <img src={artwork.img} />
+                                <Link to={`/artwork/${artwork.id}`}
+                                    artwork={artwork}>
+                                    <img src={artwork.img} />
+                                </Link>
                             </div>
                             <div className="medium">
                                 {artwork.medium}

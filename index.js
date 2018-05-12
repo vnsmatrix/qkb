@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium, getArtworks, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia} = require('./db')
+const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia} = require('./db')
 
 //upload files stuff:
 const multer = require('multer');
@@ -194,14 +194,7 @@ app.get('/mixedmedia', function(req,res) {
 app.get('/get-artwork/:id', (req, res) => {
     getArtworkById(req.params.id).then(result => {
         res.json({
-            artwork: result.rows[0],
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-    getArtistByArtworkId(req.params.id).then(result => {
-        res.json({
-            name: result.rows[0].name,
+            artwork: result.rows[0]
         })
     }).catch(e => {
         console.log(e);
@@ -223,30 +216,13 @@ app.get('/', function(req, res) {
     }
 })
 
-
-
-app.get("/seeFR/:otherUserId", (req, res) => {
-    console.log("req.params.otherUserId, req.session.user.id", req.params.otherUserId, req.session.user.id);
-    seeFR(req.params.otherUserId, req.session.user.id).then(result => {
-        console.log("seeFR result.rows", result.rows);
-        res.json({
-            success: true,
-            sender_id: result.rows[0] && result.rows[0].sender_id,
-            receiver_id: result.rows[0] && result.rows[0].receiver_id,
-            status: result.rows[0] && result.rows[0].status
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-})
-
 //FINAL ROUTE *!
 app.get('*', function(req, res) {
-    if (!req.session.user){
-        res.redirect('/')
-    } else {
+    // if (!req.session.user){
+    //     res.redirect('/')
+    // } else {
         res.sendFile(__dirname + '/index.html')
-    }
+    // }
 });
 
 //LISTENING:

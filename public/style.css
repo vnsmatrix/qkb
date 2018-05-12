@@ -115,7 +115,7 @@ footer {
 .artworks-dropdown {
     display: none;
     position: fixed;
-    background-color: white;
+    background:rgba(255,255,255,1);
     width: 100vw;
     z-index: 1;
     left: 0vw;
@@ -131,7 +131,7 @@ footer {
 }
 
 .artworks-dropdown a:hover {
-    background-color: white;
+    background: transparent;
     color: lime;
 }
 

@@ -17,7 +17,7 @@ export default class Artwork extends React.Component {
                 name: resp.data.name
             })
         }).catch(e => {
-            console.log("component did not mount", e);
+            console.log("Artwork component did not mount", e);
         })
     }
 
@@ -35,13 +35,13 @@ export default class Artwork extends React.Component {
 
                             </div>
                             <div className="medium">
-                                {artwork.medium}
+                                {this.state.artwork.medium}
                             </div>
                             <div className="name">
-                                {artwork.title}
+                                {this.state.artwork.title}
                             </div>
                             <div className="dets">
-                                {artwork.format} / {artwork.dets} / {artwork.price}€
+                                {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€
                             </div>
                             <div className="fav">
                                 ♡

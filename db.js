@@ -25,6 +25,10 @@ exports.getArtworks = () => {
     return db.query(`SELECT * FROM artworks`);
 }
 
+exports.getArtworkById = (id) => {
+    return db.query(`SELECT * FROM artworks WHERE id = $1`, [id]);
+}
+
 exports.getArtworksByMedium = (medium) => {
     return db.query(`SELECT * FROM artworks WHERE medium = $1`, [medium]);
 }
