@@ -31,11 +31,18 @@ a:hover {
     color: black;
 }
 
+
 /* NAV */
 
 nav {
-
-    z-index: 3333;
+    z-index: 1;
+    position: fixed;
+    /* background-color: white; */
+    background:rgba(255,255,255,.9);
+    width: 100%;
+    height: 53px;
+    top: 0;
+    border-bottom: 0.1px solid lightgray;
 }
 
 .home-logo {
@@ -49,12 +56,15 @@ nav {
     text-decoration-color: lime;
 }
 
+.home-logo:hover {
+    background-color: fuchsia;
+}
 .nav-h {
-    z-index: 333;
+    z-index: 3;
     position: fixed;
     top: 13px;
     left: 66px;
-    width: 66vw;
+    width: 77vw;
     display: flex;
     flex-flow: row;
     justify-content: space-around;
@@ -62,14 +72,15 @@ nav {
 }
 
 .nav-h-r {
+    z-index: 3;
     position: fixed;
     text-align: right;
     top: 13px;
     right: 0px;
     display: flex;
     flex-flow: row;
-    width: 12%;
-    padding-right: 17px;
+    width: auto;
+    margin: 0px 13px;
 
 }
 
@@ -82,8 +93,9 @@ footer {
 }
 
 .nav-v {
+    z-index: 3;
     color: gray;
-    z-index: 1;
+    /* z-index: 1; */
     margin-top: 33px;
     position: fixed;
     left: 0;
@@ -93,9 +105,10 @@ footer {
     writing-mode: vertical-rl;
     text-orientation: upright;
     margin-left: 13px;
-    top: 33px;
+    bottom: 13px;
     height: 333px;
-    color: palegreen;
+    color: lightgray;
+
     /* border: 1px dotted orange; */
 }
 
@@ -189,42 +202,46 @@ footer {
 
 /* ARTISTS todo: center imgs*/
 
-.artists {
+.artists, .artworks {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.artist-prev-container {
+.prev-container {
     width: 333px;
     height: auto;
     padding: 13px;
 }
 
-.artist-prev-container :hover {
+.prev-container :hover {
     background-color: lime;
 }
 
-.artist-prev {
+.prev {
     padding: 7px;
 }
 
-.artist-img {
+.prev-img {
 
 }
 
-.artist-img img {
+.prev-img img {
     width: 303px;
 }
 
-.artist-medium {
+.medium {
     font-style: italic;
 }
 
-.artist-name {
+.name {
     font-weight: bold;
     font-size: 16px;
+}
+
+.dets {
+
 }
 
 /* @group Blink */

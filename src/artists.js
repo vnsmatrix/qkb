@@ -30,18 +30,18 @@ export default class Artists extends React.Component {
             <div className="artists">
             {this.state.artists.map(artist => {
                 return (
-                    <div className="artist-prev-container">
-                        <div className="artist-prev">
-                            <div className="artist-img">
+                    <div className="prev-container">
+                        <div className="prev">
+                            <div className="prev-img">
                                 <img src={artist.img} />
                             </div>
-                            <div className="artist-medium">
+                            <div className="medium">
                                 {artist.medium}
                             </div>
-                            <div className="artist-name">
+                            <div className="name">
                                 {artist.name}
                             </div>
-                            <div className="artist-bio">
+                            <div className="bio">
                                 {artist.bio}
                             </div>
                         </div>

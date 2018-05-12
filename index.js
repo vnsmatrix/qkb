@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium} = require('./db')
+const {getArtists, getArtistsByMedium, getArtworks, getArtistById} = require('./db')
 
 //upload files stuff:
 const multer = require('multer');
@@ -94,26 +94,21 @@ app.get('/artists', function(req,res) {
     })
 })
 
-app.post('/upload', uploader.single('file'), s3.upload, function(req, res) { //name of the field where we appended the formData
-console.log("upload route req.body", req.body);
-console.log("upload route req.file", req.file);
-    if (req.file) {
-        console.log('file to upload:', req.file, req.body);
-        const imgUrl = config.s3Url + req.file.filename;
-        console.log(imgUrl);
-        insertImage(imgUrl, req.session.user.id).then(function(result) {
-            console.log(result);
-            res.json({
-                success: true,
-                img: result.rows[0].img
-            })
-        }).catch(e => {
-            console.log(e);
+app.get('/artworks', function(req,res) {
+    getArtworks().then (result => {
+        console.log("//////getArtworks result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
         })
-    } else {
-        console.log('no file!');
-    }
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
 })
+
 
 //delete session (cookies):
 app.get('/logout', (req, res) => {
@@ -129,195 +124,10 @@ app.get('/', function(req, res) {
     }
 })
 
-app.post("/register", (req, res) => {
-    console.log("req.body post register", req.body);
-    if (req.body.email && req.body.pass && req.body.first && req.body.last) {
-        hashPassword(req.body.pass).then (result => {
-            register(req.body.first, req.body.last, req.body.email, result).then(result => {
-                console.log("in post register: result.rows[0]", result.rows[0]);
-                req.session.user = {
-                    id: result.rows[0].id,
-                    first: req.body.first,
-                    last: req.body.last,
-                    email: result.rows[0].email,
-                    pass: result.rows[0].pass
-                }
-                res.json({
-                    success: true
-                })
-            }).catch(e => {
-                console.log(e);
-                res.json({
-                    success: false,
-                    error: 'Email already registered: Log in! :)'
-                })
-            })
-        }).catch(e => {
-            console.log(e);
-            res.json({
-                success: false
-            })
-        })
-    } else {
+app.get('/get-artwork/:id', (req, res) => {
+    getArtistById(req.params.id).then(result => {
         res.json({
-            success: false,
-            error: 'Fill all the blanks, kitty cat! ;)'
-        })
-    }
-})
-
-app.post("/login", (req, res) => {
-    if (req.body.email && req.body.pass) {
-        getMatchesByEmail(req.body.email).then(result => {
-            if (result.rows[0] == undefined) {
-                res.json({
-                    success: false,
-                    error: 'Unknown email! Whose that kitty???'
-                })
-            } else {
-            // console.log(req.body.pass, result.rows[0].pass);
-                checkPassword(req.body.pass, result.rows[0].pass).then(result2 => {
-                    if (result2 == false) {
-                        res.json({
-                            success: false,
-                            error: 'Ooops! Wrong pass! :o'
-                        })
-                    } else {
-                        console.log(req.session.user);
-                        req.session.user = {
-                            id: result.rows[0].id,
-                            first: result.rows[0].first,
-                            last: result.rows[0].last,
-                            email: result.rows[0].email,
-                            pass: result.rows[0].pass
-                        }
-                        res.json({
-                            success: true
-                        })
-                    }
-                }).catch(e => {
-                    console.log(e);
-                })
-            }
-        }).catch(e => {
-            console.log(e);
-        })
-    } else {
-        res.json({
-            success: false,
-            error: 'Fill all the blanks, kitty cat! ;)'
-        })
-    }
-})
-
-app.post("/editbio", (req, res) => {
-    console.log(req.body);
-    if (req.body.bio) {
-        editBio(req.body.bio, req.session.user.id).then(result => {
-            console.log("editbio results.rows", result.rows);
-            res.json({
-                success: true,
-                bio: result.rows[0].bio
-            })
-        }).catch(e => {
-            console.log(e);
-        })
-    } else {
-        res.json({
-            success: false,
-            error: 'Express yourself, kitty! ;)'
-        })
-    }
-})
-
-app.get('/get-user/:id', (req, res) => {
-    getInfo(req.params.id).then(result => {
-        console.log("req.params.id == req.session.user.id ? ", req.params.id,  req.session.user.id, req.params.id == req.session.user.id);
-        res.json({
-            success: true,
-            first: result.rows[0].first,
-            last: result.rows[0].last,
-            email: result.rows[0].email,
-            img: result.rows[0].img,
-            bio: result.rows[0].bio,
-            sameProfile: (req.params.id == req.session.user.id)
-        })
-    }).catch(e => {
-        console.log(e);
-        res.json({
-            success: false
-        })
-    })
-})
-
-app.post("/sendFR", (req, res) => {
-    console.log("req.body.otherUserId", req.body.otherUserId);
-    sendFR(req.body.otherUserId, req.session.user.id, 1).then(result => {
-        res.json({
-            success: true,
-            status: 1,
-            receiver_id: result.rows[0].receiver_id,
-            sender_id: result.rows[0].sender_id
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-})
-
-app.post("/cancelFR", (req, res) => {
-    console.log("req.body.otherUserId", req.body.otherUserId);
-    cancelFR(req.body.otherUserId, req.session.user.id).then(result => {
-        console.log("cancelFR results.rows", result.rows);
-        res.json({
-            success: true,
-            sender_id: result.rows[0] && result.rows[0].sender_id,
-            receiver_id: result.rows[0] && result.rows[0].receiver_id,
-            status: 3
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-})
-
-app.post("/acceptFR", (req, res) => {
-    console.log("req.body.otherUserId", req.body.otherUserId);
-    acceptFR(req.body.otherUserId, req.session.user.id).then(result => {
-        console.log("acceptFR results.rows", result.rows);
-        res.json({
-            success: true,
-            sender_id: result.rows[0] && result.rows[0].sender_id,
-            receiver_id: result.rows[0] && result.rows[0].receiver_id,
-            status: 2
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-})
-
-app.post("/rejectFR", (req, res) => {
-    console.log("req.body.otherUserId", req.body.otherUserId);
-    rejectFR(req.body.otherUserId, req.session.user.id).then(result => {
-        console.log("rejectFR results.rows", result.rows);
-        res.json({
-            success: true,
-            sender_id: result.rows[0] && result.rows[0].sender_id,
-            receiver_id: result.rows[0] && result.rows[0].receiver_id,
-            status: 5
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-})
-
-app.post("/deleteFR", (req, res) => {
-    console.log("req.body.otherUserId", req.body.otherUserId);
-    deleteFR(req.body.otherUserId, req.session.user.id).then(result => {
-        console.log("deleteFR results.rows", result.rows);
-        res.json({
-            success: true,
-            sender_id: result.rows[0] && result.rows[0].sender_id,
-            receiver_id: result.rows[0] && result.rows[0].receiver_id,
-            status: 4
+            name: result.rows[0].name,
         })
     }).catch(e => {
         console.log(e);

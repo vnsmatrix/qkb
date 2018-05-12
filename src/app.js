@@ -6,6 +6,7 @@ import About from './about';
 import Artworks from './artworks';
 import Artists from './artists';
 
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -31,12 +32,11 @@ export default class App extends React.Component {
                         <Link to="/artists">Artists</Link>
                         <Link to="/events">Events</Link>
                         <Link to="/news">News</Link>
-                        <Link to="/news">Contact</Link>
+                        <Link to="/contact">Contact</Link>
+                        <Link to="/support">Support</Link>
                          ⟩
                         <div className="nav-h-r">
-                            <Link to="/profile">Profile</Link>
                             <Link to="/wishlist">♡</Link>
-                            <div onClick="">Search</div>
                         </div>
                     </div>
                     <div className="nav-v">
@@ -56,9 +56,11 @@ export default class App extends React.Component {
                                 <Home/>
                             )}
                         />
-                        <Route exact path="/about" component={About} />
-                        <Route exact path="/artworks" component={Artworks} />
-                        <Route exact path="/artists" component={Artists} />
+                        <Route path="/home" component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/artworks" component={Artworks} />
+                        <Route path="/artists" component={Artists} />
+
                     </div>
                 </div>
 

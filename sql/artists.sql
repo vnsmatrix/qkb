@@ -11,7 +11,7 @@ CREATE TABLE artists (
 INSERT INTO artists (id, name, medium, img, bio) VALUES
     (1, 'Dánae Cuesta', 'Photography',
     'http://payload430.cargocollective.com/1/20/663222/10916568/000001-_800.jpg',
-    'Shooting exclusively on film, Dánae uses photography as a political weapon and the internet as a platform for deterritorialising the segmentation of the public and private spaces through experimental practices in which new spheres of action and subjectivation are created by means of exploring intimacy and desire as dynamic powers that stimulate processes of transformation and reappropiation of the flows of gender. These reveal themselves as techniques of resistance, empowerment and critic of traditionally hetero-homo-normative narratives.'
+    'Shooting exclusively on film, Dánae uses photography as a political weapon and the internet as a platform for deterritorialising the segmentation of the public and private spaces through experimental practices in which new spheres of action and subjectivation are created by the exploration of intimacy and desire as dynamic powers that stimulate processes of transformation and reappropiation of the flows of gender.'
 );
 
 INSERT INTO artists (id, name, medium, img, bio) VALUES

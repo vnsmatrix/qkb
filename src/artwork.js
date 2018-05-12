@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from './axios';
 
-import {Link} from 'react-router-dom';
-
-export default class Artworks extends React.Component {
+export default class Artwork extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,30 +10,27 @@ export default class Artworks extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/artworks`).then(resp => {
-            console.log("Artworks axios.get resp.data", resp.data);
+        axios.get(`/get-artwork/${this.props.match.params.id}`).then(resp => {
+            console.log("Artwork axios.get resp.data", resp.data);
             this.setState({
-                success: resp.data.success,
-                artworks: resp.data.artworks
+                artwork: resp.data.artwork
             })
         }).catch(e => {
             console.log("component did not mount", e);
         })
-    }
 
     render() {
-        console.log('Artworks render this.state', this.state);
-        if(!this.state.artworks) {
+        console.log('Artwork render this.state', this.state);
+        if(!this.state.artwork) {
             return null;
         }
         return (
-            <div className="artworks">
-            {this.state.artworks.map(artwork => {
-                return (
-                    <div className="prev-container">
-                        <div className="prev">
-                            <div className="prev-img">
-                                <img src={artwork.img} />
+            <div className="artwork">
+
+                    <div className="modal-container">
+                        <div className="modal">
+                            <div className="modal-img">
+
                             </div>
                             <div className="medium">
                                 {artwork.medium}
@@ -51,8 +46,7 @@ export default class Artworks extends React.Component {
                             </div>
                         </div>
                     </div>
-                )
-            })}
+
 
             </div>
         )
