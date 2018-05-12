@@ -41,7 +41,7 @@ export default class App extends React.Component {
                     </div>
                     <div className="nav-v">
 
-                        <a href="https://twitter.com/">Twitter</a>
+                        <a href="https://twitter.com/QueerKBerlin">Twitter</a>
                         <a href="https://instagram.com/">IG</a>
                         <a href="https://facebook.com/">FB</a>
 
@@ -58,8 +58,8 @@ export default class App extends React.Component {
                         />
                         <Route path="/home" component={Home} />
                         <Route path="/about" component={About} />
-                        <Route path="/artworks" component={Artworks} />
-                        <Route path="/artists" component={Artists} />
+                        <Route exact path="/artworks" component={Artworks} />
+                        <Route exact path="/artists" component={Artists} />
 
                     </div>
                 </div>

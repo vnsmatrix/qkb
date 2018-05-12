@@ -108,10 +108,12 @@ footer {
     bottom: 13px;
     height: 333px;
     color: lightgray;
-
     /* border: 1px dotted orange; */
 }
 
+.nav-v a:hover, .nav-h a:hover {
+    background-color: lime;
+}
 
 
 /* CONTENT */
@@ -224,7 +226,7 @@ footer {
 }
 
 .prev-img {
-
+    text-align: center;
 }
 
 .prev-img img {
