@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium, getArtworks, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getMixedMedia} = require('./db')
+const {getArtists, getArtistsByMedium, getArtworks, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia} = require('./db')
 
 //upload files stuff:
 const multer = require('multer');
@@ -129,6 +129,37 @@ app.get('/illustration', function(req,res) {
         })
     })
 })
+
+app.get('/painting', function(req,res) {
+    getPainting().then (result => {
+        console.log("//////getPainting result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
+app.get('/collage', function(req,res) {
+    getCollage().then (result => {
+        console.log("//////getCollage result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
 
 app.get('/poetry', function(req,res) {
     getPoetry().then (result => {

@@ -31,3 +31,9 @@ INSERT INTO artists (id, name, medium, img, bio) VALUES
     'http://www.antiagency.co.uk/assets/homepage-4-409x620.jpg',
     'Lora Mathis is a writer, visual artist, zinester, and musician from Southern California. Their first full-length collection The Women Widowed to Themselves was a Pushcart Prize nominee and published in 2015 by Where Are You Press.'
 );
+
+INSERT INTO artists (id, name, medium, img, bio) VALUES
+    (5, 'Nil & Karin Romano', 'Painting',
+    'https://scontent-frx5-1.xx.fbcdn.net/v/t31.0-8/16797897_10155014751053550_2915709557326162695_o.jpg?_nc_cat=0&_nc_eui2=AeGwRpPjtz4hhoGjhCKc28I4GVoRdR5WTTw9eLs_2SN5pshy3-BLMPuZ-py3ZjWJdT7yBpKOgA1-ekSeB41adywzxiSlTbDWrbl0QyUtM4za_g&oh=ff06a3e979bf22c440760680def3e7d3&oe=5B9C272D',
+    'The Romano twins are multi-talented painters, djs and rebels born & based in Tel Aviv. They produce beautifully twisted works of art four hands at a time.'
+);

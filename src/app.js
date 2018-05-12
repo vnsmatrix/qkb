@@ -6,8 +6,11 @@ import About from './about';
 import Artworks from './artworks';
 import Artists from './artists';
 import Artwork from './artwork';
+import Contact from './contact';
+import Support from './support';
 import Photography from './photography';
 import Poetry from './poetry';
+import Painting from './painting';
 import Illustration from './illustration';
 import MixedMedia from './mixedmedia';
 
@@ -38,7 +41,9 @@ export default class App extends React.Component {
                             <div className="artworks-dropdown">
                                 <Link to="/photography">Photography</Link>
                                 <Link to="/poetry">Poetry</Link>
+                                <Link to="/painting">Painting</Link>
                                 <Link to="/illustration">Illustration</Link>
+                                <Link to="/collage">Collage</Link>
                                 <Link to="/mixedmedia">Mixed Media</Link>
                                 </div>
                         </div>
@@ -72,13 +77,15 @@ export default class App extends React.Component {
                         />
                         <Route path="/home" component={Home} />
                         <Route path="/about" component={About} />
-                        <Route exact path="/artworks" component={Artworks} />
-                        <Route exact path="/artists" component={Artists} />
-                        <Route exact path="/photography" component={Photography} />
-                        <Route exact path="/poetry" component={Poetry} />
-                        <Route exact path="/illustration" component={Illustration} />
-                        <Route exact path="/mixedmedia" component={MixedMedia} />
-                        <Route exact path="/artwork/:id" component={Artwork} />
+                        <Route path="/artworks" component={Artworks} />
+                        <Route path="/artists" component={Artists} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/support" component={Support} />
+                        <Route path="/photography" component={Photography} />
+                        <Route path="/poetry" component={Poetry} />
+                        <Route path="/illustration" component={Illustration} />
+                        <Route path="/mixedmedia" component={MixedMedia} />
+                        <Route path="/artwork/" component={Artwork} />
 
                     </div>
                 </div>

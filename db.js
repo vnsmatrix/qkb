@@ -41,6 +41,14 @@ exports.getIllustration = () => {
     return db.query(`SELECT * FROM artworks WHERE medium = 'Illustration'`);
 }
 
+exports.getPainting = () => {
+    return db.query(`SELECT * FROM artworks WHERE medium = 'Painting'`);
+}
+
+exports.getCollage = () => {
+    return db.query(`SELECT * FROM artworks WHERE medium = 'Collage'`);
+}
+
 exports.getMixedMedia = () => {
     return db.query(`SELECT * FROM artworks WHERE medium = 'Mixed Media'`);
 }
