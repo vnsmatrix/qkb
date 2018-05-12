@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium, getArtworks, getArtistById} = require('./db')
+const {getArtists, getArtistsByMedium, getArtworks, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getMixedMedia} = require('./db')
 
 //upload files stuff:
 const multer = require('multer');
@@ -68,15 +68,6 @@ if (process.env.NODE_ENV != 'production') {
     app.use('/bundle.js', (req, res) => res.sendFile(`${__dirname}/bundle.js`));
 }
 
-
-function requireLogin (req, res, next) {
-    if(!req.session.user) {
-        res.sendStatus(403);
-    } else {
-        next();
-    }
-}
-
 //MY ROUTES:
 
 app.get('/artists', function(req,res) {
@@ -109,6 +100,83 @@ app.get('/artworks', function(req,res) {
     })
 })
 
+app.get('/photography', function(req,res) {
+    getPhotography().then (result => {
+        console.log("//////getPhotography result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
+app.get('/illustration', function(req,res) {
+    getIllustration().then (result => {
+        console.log("//////getIllustration result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
+app.get('/poetry', function(req,res) {
+    getPoetry().then (result => {
+        console.log("//////getPoetry result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
+app.get('/mixedmedia', function(req,res) {
+    getMixedMedia().then (result => {
+        console.log("//////getMixedMedia result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
+app.get('/get-artwork/:id', (req, res) => {
+    getArtworkById(req.params.id).then(result => {
+        res.json({
+            artwork: result.rows[0],
+        })
+    }).catch(e => {
+        console.log(e);
+    })
+    getArtistByArtworkId(req.params.id).then(result => {
+        res.json({
+            name: result.rows[0].name,
+        })
+    }).catch(e => {
+        console.log(e);
+    })
+})
+
 
 //delete session (cookies):
 app.get('/logout', (req, res) => {
@@ -124,15 +192,7 @@ app.get('/', function(req, res) {
     }
 })
 
-app.get('/get-artwork/:id', (req, res) => {
-    getArtistById(req.params.id).then(result => {
-        res.json({
-            name: result.rows[0].name,
-        })
-    }).catch(e => {
-        console.log(e);
-    })
-})
+
 
 app.get("/seeFR/:otherUserId", (req, res) => {
     console.log("req.params.otherUserId, req.session.user.id", req.params.otherUserId, req.session.user.id);

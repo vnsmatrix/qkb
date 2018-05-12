@@ -29,6 +29,22 @@ exports.getArtworksByMedium = (medium) => {
     return db.query(`SELECT * FROM artworks WHERE medium = $1`, [medium]);
 }
 
+exports.getPhotography = () => {
+    return db.query(`SELECT * FROM artworks WHERE medium = 'Photography'`);
+}
+
+exports.getPoetry = () => {
+    return db.query(`SELECT * FROM artworks WHERE medium = 'Poetry'`);
+}
+
+exports.getIllustration = () => {
+    return db.query(`SELECT * FROM artworks WHERE medium = 'Illustration'`);
+}
+
+exports.getMixedMedia = () => {
+    return db.query(`SELECT * FROM artworks WHERE medium = 'Mixed Media'`);
+}
+
 exports.getArtworksByArtistId = (id) => {
     return db.query(`SELECT name FROM artists WHERE id = $1`, [id]);
 }

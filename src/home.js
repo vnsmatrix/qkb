@@ -29,10 +29,10 @@ function moveKitties(next) {
 
     kitties[cur].classList.add('onscreen');
     dots[cur].classList.add('active');
-    timer = setTimeout (moveKitties, 5000);
+    timer = setTimeout (moveKitties, 3000);
 }
 
-timer = setTimeout(moveKitties, 5000);
+timer = setTimeout(moveKitties, 3000);
 
 [].slice.call(dots).forEach(function(dot, index) {
     dots[index].addEventListener('click', function () {

@@ -94,8 +94,6 @@ footer {
 
 .nav-v {
     z-index: 3;
-    color: gray;
-    /* z-index: 1; */
     margin-top: 33px;
     position: fixed;
     left: 0;
@@ -108,11 +106,37 @@ footer {
     bottom: 13px;
     height: 333px;
     color: lightgray;
-    /* border: 1px dotted orange; */
 }
 
 .nav-v a:hover, .nav-h a:hover {
     background-color: lime;
+}
+
+.artworks-dropdown {
+    display: none;
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+    z-index: 1;
+    left: 0vw;
+    padding: 23px 0px 23px 166px;
+    border-bottom: 0.1px solid lightgray;
+}
+
+.artworks-dropdown a{
+  /* text-decoration: none; */
+  display: block;
+  color: fuchsia;
+  width: auto;
+}
+
+.artworks-dropdown a:hover {
+    background-color: white;
+    color: lime;
+}
+
+.artworks-menu:hover .artworks-dropdown {
+    display: block;
 }
 
 
