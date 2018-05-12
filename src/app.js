@@ -6,6 +6,7 @@ import About from './about';
 import Artworks from './artworks';
 import Artists from './artists';
 import Artwork from './artwork';
+import Artist from './artist';
 import Contact from './contact';
 import Support from './support';
 import Photography from './photography';
@@ -86,6 +87,7 @@ export default class App extends React.Component {
                         <Route path="/illustration" component={Illustration} />
                         <Route path="/mixedmedia" component={MixedMedia} />
                         <Route exact path="/artwork/:id" component={Artwork} />
+                        <Route exact path="/artist/:artist" component={Artist} />
 
                     </div>
                 </div>

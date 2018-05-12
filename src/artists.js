@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from './axios';
+import {Link} from 'react-router-dom';
 
 export default class Artists extends React.Component {
     constructor(props) {
@@ -33,7 +34,9 @@ export default class Artists extends React.Component {
                     <div className="prev-container">
                         <div className="prev">
                             <div className="prev-img">
-                                <img src={artist.img} />
+                                <Link to={`/artist/${artist.name}`}>
+                                    <img src={artist.img} />
+                                </Link>
                             </div>
                             <div className="medium">
                                 {artist.medium}

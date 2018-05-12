@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia} = require('./db')
+const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName} = require('./db')
 
 //upload files stuff:
 const multer = require('multer');
@@ -195,6 +195,16 @@ app.get('/get-artwork/:id', (req, res) => {
     getArtworkById(req.params.id).then(result => {
         res.json({
             artwork: result.rows[0]
+        })
+    }).catch(e => {
+        console.log(e);
+    })
+})
+
+app.get('/get-artist/:artist', (req, res) => {
+    getArtistByName(req.params.artist).then(result => {
+        res.json({
+            artist: result.rows[0]
         })
     }).catch(e => {
         console.log(e);

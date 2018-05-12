@@ -270,6 +270,15 @@ footer {
 
 }
 
+.artwork, .about {
+    margin-bottom: 13px;
+}
+
+.modal-img img {
+    max-width: 90vw;
+    max-height: 70vh;
+}
+
 /* @group Blink */
 .blink {
 	-webkit-animation: blink .75s linear infinite;

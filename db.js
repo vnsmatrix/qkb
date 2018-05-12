@@ -17,7 +17,6 @@ exports.getArtistsByMedium = (medium) => {
 }
 
 exports.getArtistByArtworkId = (id) => {
-    //todo
     return db.query(`SELECT name FROM artists WHERE id = $1`, [id]);
 }
 
@@ -59,4 +58,8 @@ exports.getMixedMedia = () => {
 
 exports.getArtworksByArtistId = (id) => {
     return db.query(`SELECT name FROM artists WHERE id = $1`, [id]);
+}
+
+exports.getArtistByName = (name) => {
+    return db.query(`SELECT * FROM artists WHERE name = $1`, [name]);
 }
