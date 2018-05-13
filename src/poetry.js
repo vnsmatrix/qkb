@@ -48,6 +48,12 @@ export default class Poetry extends React.Component {
                             <div className="name">
                                 {artwork.title}
                             </div>
+                            <div className="by">
+                                by { }
+                                <Link to={`/artist/${artwork.artist}`}>
+                                    {artwork.artist}
+                                </Link>
+                            </div>
                             <div className="dets">
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
