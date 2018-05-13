@@ -11,7 +11,7 @@ export default class Artists extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/artists`).then(resp => {
+        axios.get(`/get-artists`).then(resp => {
             console.log("Artists axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,

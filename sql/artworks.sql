@@ -101,3 +101,22 @@ INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price)
     2017,
     45
 );
+
+INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price) VALUES
+    (10, 'Nil & Karin Romano', 'My Pets Have Eaten Me To Rot Away',
+    'https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/30221485_10156229437593550_5544029702202589184_o.jpg?_nc_cat=0&_nc_eui2=AeHST0K6S9Khqt89OqJ9TpB1XM2MqXGtZb5owDJOY50KLkytXzVNMJAYu8zPO_P0aJ49ijyNlXMZvlXb80IaSrjCDBqYK4uamILvk9JfEQSLOA&oh=c12c770050c495224b9ffec53ae20a6d&oe=5B4F6FE4',
+    'Painting',
+    '120 x 80 cm',
+    'Original',
+    2018,
+    666
+);
+
+INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price) VALUES
+    (11, 'Nil & Karin Romano', 'My Pets Have Eaten Me To Rot Away',
+    'Painting',
+    '120 x 80 cm',
+    'Original',
+    2018,
+    666
+);

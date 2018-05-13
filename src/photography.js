@@ -12,7 +12,7 @@ export default class Photography extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/photography`).then(resp => {
+        axios.get(`/get-photography`).then(resp => {
             console.log("Photography axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,

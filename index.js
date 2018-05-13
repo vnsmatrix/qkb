@@ -70,7 +70,7 @@ if (process.env.NODE_ENV != 'production') {
 
 //MY ROUTES:
 
-app.get('/artists', function(req,res) {
+app.get('/get-artists', function(req,res) {
     getArtists().then (result => {
         console.log("//////getArtists result.rows", result.rows);
         res.json({
@@ -85,7 +85,7 @@ app.get('/artists', function(req,res) {
     })
 })
 
-app.get('/artworks', function(req,res) {
+app.get('/get-artworks', function(req,res) {
     getArtworks().then (result => {
         console.log("//////getArtworks result.rows", result.rows);
         res.json({
@@ -100,7 +100,7 @@ app.get('/artworks', function(req,res) {
     })
 })
 
-app.get('/photography', function(req,res) {
+app.get('/get-photography', function(req,res) {
     getPhotography().then (result => {
         console.log("//////getPhotography result.rows", result.rows);
         res.json({
@@ -115,7 +115,7 @@ app.get('/photography', function(req,res) {
     })
 })
 
-app.get('/illustration', function(req,res) {
+app.get('/get-illustration', function(req,res) {
     getIllustration().then (result => {
         console.log("//////getIllustration result.rows", result.rows);
         res.json({
@@ -130,7 +130,7 @@ app.get('/illustration', function(req,res) {
     })
 })
 
-app.get('/painting', function(req,res) {
+app.get('/get-painting', function(req,res) {
     getPainting().then (result => {
         console.log("//////getPainting result.rows", result.rows);
         res.json({
@@ -145,7 +145,7 @@ app.get('/painting', function(req,res) {
     })
 })
 
-app.get('/collage', function(req,res) {
+app.get('/get-collage', function(req,res) {
     getCollage().then (result => {
         console.log("//////getCollage result.rows", result.rows);
         res.json({
@@ -161,7 +161,7 @@ app.get('/collage', function(req,res) {
 })
 
 
-app.get('/poetry', function(req,res) {
+app.get('/get-poetry', function(req,res) {
     getPoetry().then (result => {
         console.log("//////getPoetry result.rows", result.rows);
         res.json({
@@ -176,7 +176,7 @@ app.get('/poetry', function(req,res) {
     })
 })
 
-app.get('/mixedmedia', function(req,res) {
+app.get('/get-mixedmedia', function(req,res) {
     getMixedMedia().then (result => {
         console.log("//////getMixedMedia result.rows", result.rows);
         res.json({

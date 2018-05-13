@@ -12,7 +12,7 @@ export default class Artworks extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/artworks`).then(resp => {
+        axios.get(`/get-artworks`).then(resp => {
             console.log("Artworks axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,

@@ -12,7 +12,7 @@ export default class Painting extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/painting`).then(resp => {
+        axios.get(`/get-painting`).then(resp => {
             console.log("Painting axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,

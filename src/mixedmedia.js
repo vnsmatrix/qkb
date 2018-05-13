@@ -12,7 +12,7 @@ export default class MixedMedia extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/mixedmedia`).then(resp => {
+        axios.get(`/get-mixedmedia`).then(resp => {
             console.log("MixedMedia axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,

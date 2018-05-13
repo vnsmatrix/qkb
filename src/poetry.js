@@ -12,7 +12,7 @@ export default class Poetry extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/poetry`).then(resp => {
+        axios.get(`/get-poetry`).then(resp => {
             console.log("Poetry axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,

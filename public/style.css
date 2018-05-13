@@ -279,6 +279,23 @@ footer {
     max-height: 70vh;
 }
 
+.about-img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.about-img {
+    max-height: 666px;
+    margin: auto;
+}
+
+.about-img img{
+    max-height: 666px;
+}
+
 /* @group Blink */
 .blink {
 	-webkit-animation: blink .75s linear infinite;

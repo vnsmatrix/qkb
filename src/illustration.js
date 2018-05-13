@@ -12,7 +12,7 @@ export default class Illustration extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`/illustration`).then(resp => {
+        axios.get(`/get-illustration`).then(resp => {
             console.log("Illustration axios.get resp.data", resp.data);
             this.setState({
                 success: resp.data.success,
