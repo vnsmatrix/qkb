@@ -35,7 +35,9 @@ export default class Artwork extends React.Component {
                                 <img src={this.state.artwork.img} />
                             </div>
                             <div className="medium">
-                                {this.state.artwork.medium}
+                                <Link to={`/${this.state.artwork.medium}`}>
+                                    {this.state.artwork.medium}
+                                </Link>
                             </div>
                             <div className="name">
                                 {this.state.artwork.title} by { }

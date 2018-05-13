@@ -41,7 +41,9 @@ export default class Painting extends React.Component {
                                 </Link>
                             </div>
                             <div className="medium">
+                            <Link to={`/${artwork.medium}`}>
                                 {artwork.medium}
+                            </Link>
                             </div>
                             <div className="name">
                                 {artwork.title}

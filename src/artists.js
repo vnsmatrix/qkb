@@ -39,7 +39,9 @@ export default class Artists extends React.Component {
                                 </Link>
                             </div>
                             <div className="medium">
-                                {artist.medium}
+                                <Link to={`/${artist.medium}`}>
+                                    {artist.medium}
+                                </Link>
                             </div>
                             <div className="name">
                                 {artist.name}

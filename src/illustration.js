@@ -41,7 +41,9 @@ export default class Illustration extends React.Component {
                                 </Link>
                             </div>
                             <div className="medium">
-                                {artwork.medium}
+                                <Link to={`/${artwork.medium}`}>
+                                    {artwork.medium}
+                                </Link>
                             </div>
                             <div className="name">
                                 {artwork.title}

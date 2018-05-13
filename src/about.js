@@ -16,7 +16,8 @@ export default function About (props) {
             </p>
             <h1>Join Us</h1>
             <p>
-                We're here, we're queer! We're fabulous, send us your art! Get featured as an artist, contact us with events, gallery openings, opportunities or proposals. We are happy to hear from you. Together we are unstoppable.
+                We're here, we're queer! We're fabulous, send us your art!
+                Get featured as an artist, contact us with events, gallery openings, opportunities or proposals. We are happy to hear from you. Together we are unstoppable.
             </p>
             <div className="about-img-wrapper">
                 <div className="about-img">
