@@ -288,12 +288,16 @@ footer {
 }
 
 .about-img {
-    max-height: 666px;
+    max-height: 888px;
     margin: auto;
 }
 
 .about-img img{
-    max-height: 666px;
+    max-height: 888px;
+}
+
+#about a {
+    color: fuchsia;
 }
 
 .artist-container {
@@ -326,6 +330,18 @@ footer {
     width: 166px;
 }
 
+.news-container {
+    margin: 7px 0px;
+}
+
+.news-container a:hover {
+    background-color: lime;
+}
+
+.news-loading {
+    margin: 33px;
+    color: lime;
+}
 
 /* @group Blink */
 .blink {

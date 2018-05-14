@@ -8,7 +8,7 @@ const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
 const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
-// const headlines = require('./headlines');
+const headlines = require('./headlines');
 
 //upload files stuff:
 const multer = require('multer');
@@ -223,13 +223,14 @@ app.get('/get-artworks-by-artist/:artist', (req, res) => {
     })
 })
 
-// app.get('/get-news', (req, res) => {
-//     headlines().then(headlines => {
-//         res.json(headlines);
-//     }).catch(() => {
-//         res.sendStatus(500);
-//     });
-// });
+app.get('/get-news', (req, res) => {
+    headlines().then(headlines => {
+        console.log("headlines", headlines);
+        res.json(headlines);
+    }).catch(e => {
+        console.log("error in /get-news", e);
+    })
+})
 
 
 //delete session (cookies):

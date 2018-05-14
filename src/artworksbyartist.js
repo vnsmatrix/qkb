@@ -30,7 +30,7 @@ export default class ArtworksByArtist extends React.Component {
         }
         return (
             <div className="artworks-by-artist">
-            <p>Artworks:</p>
+            {this.state.artworks.length > 0 && <p>Artworks:</p>}
             {this.state.artworks.map(artwork => {
                 return (
                     <div className="prev-container">

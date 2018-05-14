@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from './axios';
+import {Link} from 'react-router-dom'
 
 export default function About (props) {
     console.log("About props", props);
@@ -11,13 +12,13 @@ export default function About (props) {
             </p>
             <h1>Our Mission</h1>
             <p>
-                QKB is not an art merchant. We don't sell art and most importantly, we don't sell artists. We connect queer talents directly with potential buyers. We believe society should support artists so they can give away their art. We believe humans beings should support human beings. Working ourselves in art and tech, this is our natural contribution to the community. We do not make any profit out of it more than the satisfaction of nurturing our community.
+                QKB is not an art merchant. We don't sell art and, most importantly, we don't sell artists. Our aim is to connect queer talents directly with potential buyers. We believe society should support artists so they can give away their art. We believe human beings should support human beings. Working ourselves in art and tech, this is our natural contribution to the LGTBQ+ community. We do not make any profit other than the satisfaction of fostering the queer art scene in Berlin and beyond.
 
             </p>
             <h1>Join Us</h1>
             <p>
-                We're here, we're queer! We're fabulous, send us your art!
-                Get featured as an artist, contact us with events, gallery openings, opportunities or proposals. We are happy to hear from you. Together we are unstoppable.
+                We're here, we're queer! Be fabulous, <a href="mailto:qkb@protonmail.com">send us your art!</a> { }
+                Get featured as an <Link to="/artists">artist</Link>, share <Link to="/events">events</Link>, gallery openings, opportunities or proposals with us. We got each others's backs. Together we are unstoppable!
             </p>
             <div className="about-img-wrapper">
                 <div className="about-img">

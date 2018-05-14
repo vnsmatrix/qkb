@@ -13,8 +13,9 @@ export default class News extends React.Component {
         axios.get('/get-news').then(resp => {
             console.log("News axios.get resp.data", resp.data);
             this.setState({
-                news: resp.data.headlines
+                news: resp.data
             })
+            console.log(this.state);
         }).catch(e => {
             console.log("News component did not mount", e);
         })
@@ -23,15 +24,24 @@ export default class News extends React.Component {
     render() {
         console.log('News render this.state', this.state);
         if(!this.state.news) {
-            return null;
+            console.log("!this.state.news");
+            return (
+                <div className="news-loading">
+                Getting news from Twitter, please wait . . .
+                </div>
+            )
         }
         return (
-            <div id="news">
+            <div className="news">
                 <h1>News</h1>
-                <p>
-                    UNDER CONSTRUCTION
-                </p>
-
+                {this.state.news.map(item => {
+                    console.log("news map", item);
+                    return (
+                        <div className="news-container">
+                            {item.source}: <a href={item.href}>{item.text}</a>
+                        </div>
+                    )
+                })}
             </div>
         )
     }

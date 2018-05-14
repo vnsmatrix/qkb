@@ -1,4 +1,4 @@
-const config = require('./config');
+const config = require('./secrets');
 const request = require('./request');
 
 module.exports.getTweets = function(screenName) {
@@ -17,7 +17,9 @@ module.exports.getTweets = function(screenName) {
                 (a, b) => new Date(b.created_at) - new Date(a.created_at)
             );
         });
-    });
+    }).catch(e => {
+        console.log("error in getTweets from twApi", e);
+    })
 }
 
 function getToken() {
@@ -30,8 +32,11 @@ function getToken() {
         contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
         body: 'grant_type=client_credentials'
     }).then(function(data) {
+        console.log("data from getToken", data);
         return JSON.parse(data).access_token;
-    });
+    }).catch(e => {
+        console.log("error getToken", e);
+    })
 };
 
 function getTweets(token, screenName) {
@@ -41,5 +46,7 @@ function getTweets(token, screenName) {
         auth: 'Bearer ' + token
     }).then(function(data) {
        return JSON.parse(data);
-    });
+    }).catch(e => {
+        console.log("error in getTweets", e);
+    })
 };
