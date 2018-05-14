@@ -9,6 +9,7 @@ const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
 const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
+const meetUps = require('./meetUps')
 
 //upload files stuff:
 const multer = require('multer');
@@ -229,6 +230,15 @@ app.get('/get-news', (req, res) => {
         res.json(headlines);
     }).catch(e => {
         console.log("error in /get-news", e);
+    })
+})
+
+app.get('/get-events', (req, res) => {
+    meetUps().then(meetUps => {
+        console.log("meetUps", meetUps);
+        res.json(meetUps);
+    }).catch(e => {
+        console.log("error in /get-events", e);
     })
 })
 

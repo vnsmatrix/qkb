@@ -10,7 +10,8 @@ export default function Contact (props) {
                 For any kind of inquiries, proposals, suggestions, please email:
             </p>
             <p>
-                <a href="mailto:qkb@protonmail.com">qkb@protonmail.com</a>
+            <i class="far fa-envelope"></i> {  }
+            <a href="mailto:qkb@protonmail.com">qkb@protonmail.com</a>
 
             </p>
 
