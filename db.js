@@ -56,8 +56,8 @@ exports.getMixedMedia = () => {
     return db.query(`SELECT * FROM artworks WHERE medium = 'Mixed Media'`);
 }
 
-exports.getArtworksByArtistId = (id) => {
-    return db.query(`SELECT name FROM artists WHERE id = $1`, [id]);
+exports.getArtworksByArtist = (artist) => {
+    return db.query(`SELECT * FROM artworks WHERE artist = $1`, [artist]);
 }
 
 exports.getArtistByName = (name) => {

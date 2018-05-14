@@ -7,7 +7,8 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName} = require('./db')
+const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+// const headlines = require('./headlines');
 
 //upload files stuff:
 const multer = require('multer');
@@ -210,6 +211,25 @@ app.get('/get-artist/:artist', (req, res) => {
         console.log(e);
     })
 })
+
+app.get('/get-artworks-by-artist/:artist', (req, res) => {
+    console.log("get-artworks-by-artist/ req.params.artist", req.params.artist);
+    getArtworksByArtist(req.params.artist).then(result => {
+        res.json({
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+    })
+})
+
+// app.get('/get-news', (req, res) => {
+//     headlines().then(headlines => {
+//         res.json(headlines);
+//     }).catch(() => {
+//         res.sendStatus(500);
+//     });
+// });
 
 
 //delete session (cookies):

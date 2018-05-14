@@ -40,10 +40,16 @@ export default class Artwork extends React.Component {
                                 </Link>
                             </div>
                             <div className="name">
-                                {this.state.artwork.title} by { }
+                                {this.state.artwork.title}
+                            </div>
+                            <div className="by">
+                                by { }
                                 <Link to={`/artist/${this.state.artwork.artist}`}>
                                     {this.state.artwork.artist}
                                 </Link>
+                            </div>
+                            <div className="year">
+                                {this.state.artwork.year}
                             </div>
                             <div className="dets">
                                 {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€

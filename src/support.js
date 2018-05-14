@@ -7,9 +7,10 @@ export default function Support (props) {
         <div id="support">
             <h1>Support</h1>
             <p>
-                Support the artists, buy their art!
+                Support the artists: Buy their art!
             </p>
             <p>
+                Support QKB: Make a donation :)
             </p>
 
         </div>

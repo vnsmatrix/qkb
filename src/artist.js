@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from './axios';
 import {Link} from 'react-router-dom';
+import ArtworksByArtist from './artworksbyartist'
 
 export default class Artist extends React.Component {
     constructor(props) {
@@ -46,6 +47,7 @@ export default class Artist extends React.Component {
                                 {this.state.artist.bio}
                             </div>
                         </div>
+                        <ArtworksByArtist artist={this.state.artist.name}/>
                     </div>
 
 

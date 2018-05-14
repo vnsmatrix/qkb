@@ -2,9 +2,9 @@ const twApi = require('./twApi');
 
 module.exports = function() {
     return twApi.getTweets([
-        'nytimes',
-        'washingtonpost',
-        'theonion'
+        'QueerArtBerlin',
+        'covenberlin',
+        'TheAdvocateMag'
     ]).then(function(data) {
         return data.filter(function(item) {
             return item.entities.urls && item.entities.urls.length == 1;

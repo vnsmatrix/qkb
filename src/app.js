@@ -9,6 +9,8 @@ import Artwork from './artwork';
 import Artist from './artist';
 import Contact from './contact';
 import Support from './support';
+import News from './news';
+import Events from './events';
 import Photography from './photography';
 import Poetry from './poetry';
 import Painting from './painting';
@@ -20,7 +22,6 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
         };
     }
 
@@ -82,6 +83,8 @@ export default class App extends React.Component {
                         <Route path="/artists" component={Artists} />
                         <Route path="/contact" component={Contact} />
                         <Route path="/support" component={Support} />
+                        <Route path="/news" component={News} />
+                        <Route path="/events" component={Events} />
                         <Route path="/photography" component={Photography} />
                         <Route path="/poetry" component={Poetry} />
                         <Route path="/illustration" component={Illustration} />

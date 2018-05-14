@@ -37,7 +37,7 @@ function getToken() {
 function getTweets(token, screenName) {
     return request({
         host: 'api.twitter.com',
-        path: `/1.1/statuses/user_timeline.json?screen_name=${screenName || 'theonion'}`,
+        path: `/1.1/statuses/user_timeline.json?screen_name=${screenName || 'QueerArtBerlin'}`,
         auth: 'Bearer ' + token
     }).then(function(data) {
        return JSON.parse(data);
