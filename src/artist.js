@@ -29,9 +29,8 @@ export default class Artist extends React.Component {
         }
         return (
             <div className="artist">
-
-                    <div className="modal-container">
-                        <div className="modal">
+                    <div className="artist-container">
+                        <div className="artist-info">
                             <div className="modal-img">
                                 <img src={this.state.artist.img} />
                             </div>
@@ -47,10 +46,10 @@ export default class Artist extends React.Component {
                                 {this.state.artist.bio}
                             </div>
                         </div>
-                        <ArtworksByArtist artist={this.state.artist.name}/>
+                        <div className="artist-artworks">
+                            <ArtworksByArtist artist={this.state.artist.name}/>
+                        </div>
                     </div>
-
-
             </div>
         )
     }

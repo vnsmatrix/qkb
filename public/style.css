@@ -296,6 +296,37 @@ footer {
     max-height: 666px;
 }
 
+.artist-container {
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+}
+
+.artist .modal-img img {
+    max-height: 444px;
+}
+
+.artworks-by-artist p {
+    color: lime;
+    text-align: center;
+    font-style: italic;
+}
+
+.artworks-by-artist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.artworks-by-artist .prev-container {
+    width: auto;
+
+}
+
+.artworks-by-artist img {
+    width: 166px;
+}
+
+
 /* @group Blink */
 .blink {
 	-webkit-animation: blink .75s linear infinite;

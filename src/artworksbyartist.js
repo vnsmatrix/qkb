@@ -30,6 +30,7 @@ export default class ArtworksByArtist extends React.Component {
         }
         return (
             <div className="artworks-by-artist">
+            <p>Artworks:</p>
             {this.state.artworks.map(artwork => {
                 return (
                     <div className="prev-container">
@@ -39,17 +40,6 @@ export default class ArtworksByArtist extends React.Component {
                                     artwork={artwork}>
                                     <img src={artwork.img} />
                                 </Link>
-                            </div>
-                            <div className="medium">
-                                <Link to={`/${artwork.medium}`}>
-                                    {artwork.medium}
-                                </Link>
-                            </div>
-                            <div className="name">
-                                {artwork.title}
-                            </div>
-                            <div className="dets">
-                                {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
                             <div className="fav">
                                 ♡
