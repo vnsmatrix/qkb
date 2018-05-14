@@ -103,8 +103,8 @@ footer {
     writing-mode: vertical-rl;
     text-orientation: upright;
     margin-left: 13px;
-    bottom: 13px;
-    height: 333px;
+    bottom: 7px;
+    height: 133px;
     color: lightgray;
 }
 
@@ -296,8 +296,12 @@ footer {
     max-height: 888px;
 }
 
-#about a {
+#about a, #support a, #contact a {
     color: fuchsia;
+}
+
+#about a:hover, #support a:hover, #contact a:hover {
+    color: lime;
 }
 
 .artist-container {

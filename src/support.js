@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from './axios';
+import {Link} from 'react-router-dom'
+
+//todo: link to patreon
 
 export default function Support (props) {
     console.log("Support props", props);
@@ -7,10 +10,10 @@ export default function Support (props) {
         <div id="support">
             <h1>Support</h1>
             <p>
-                Support the artists: Buy their art!
+                Support the artists: <Link to="/artworks">Buy their art!</Link>
             </p>
             <p>
-                Support QKB: Make a donation :)
+                Support the platform: <a href="#">Make a donation :) </a>
             </p>
 
         </div>

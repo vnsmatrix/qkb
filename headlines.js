@@ -4,9 +4,18 @@ module.exports = function() {
     return twApi.getTweets([
         'QueerArtBerlin',
         'covenberlin',
-        'TheAdvocateMag'
+        'TheAdvocateMag',
+        'danaecuesta',
+        'voices4_',
+        'NTransfeminista',
+        'rqtr',
+        'OrgulloMadrid',
+        'queer_sol',
+        'queerberlin',
+        'queerspiegel',
+        'siegessaeule'
     ]).then(function(data) {
-        console.log("got our twwets", data);
+        console.log("got our tweets", data);
         return data.filter(function(item) {
             return item.entities.urls && item.entities.urls.length == 1;
         }).map(function(item) {

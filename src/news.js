@@ -27,7 +27,7 @@ export default class News extends React.Component {
             console.log("!this.state.news");
             return (
                 <div className="news-loading">
-                Getting news from Twitter, please wait . . .
+                Getting the freshest queer news from Twitter in English / German / Spanish, please wait . . .
                 </div>
             )
         }
@@ -38,7 +38,7 @@ export default class News extends React.Component {
                     console.log("news map", item);
                     return (
                         <div className="news-container">
-                            {item.source}: <a href={item.href}>{item.text}</a>
+                            {item.source}: <a href={item.href} target="_blank">{item.text}</a>
                         </div>
                     )
                 })}

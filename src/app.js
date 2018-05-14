@@ -61,9 +61,9 @@ export default class App extends React.Component {
                     </div>
                     <div className="nav-v">
 
-                        <a href="https://twitter.com/QueerArtBerlin" target="_blank">Twitter</a>
-                        <a href="https://instagram.com/">IG</a>
-                        <a href="https://facebook.com/">FB</a>
+                        <a href="https://twitter.com/QueerArtBerlin" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
 
                     </div>
 
