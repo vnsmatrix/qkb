@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from './axios';
+import HeartButton from './heartbutton';
 
 import {Link} from 'react-router-dom';
 
@@ -9,7 +10,6 @@ export default class Artworks extends React.Component {
         this.state = {
 
         };
-        this.handleClick = this.submit.handleClick(this);
     }
 
     componentDidMount() {
@@ -22,18 +22,6 @@ export default class Artworks extends React.Component {
         }).catch(e => {
             console.log("component did not mount", e);
         })
-    }
-
-    handleClick() {
-        if(loggedIn) {
-            axios.post('/add-to-wl').then(resp => {
-                console.log("Artworks axios.post resp.data", resp.data);
-                this.setState({
-
-                })
-            })
-        }
-
     }
 
     render() {
@@ -71,7 +59,7 @@ export default class Artworks extends React.Component {
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
                             <div className="fav">
-                                <i class="far fa-heart" onClick={this.handleClick}></i>
+                                <HeartButton artworkId={artwork.id} />
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from './axios';
 import {Link} from 'react-router-dom';
+import HeartButton from './heartbutton';
 
 export default class Artwork extends React.Component {
     constructor(props) {
@@ -55,7 +56,7 @@ export default class Artwork extends React.Component {
                                 {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€
                             </div>
                             <div className="fav">
-                                <i class="far fa-heart"></i> Add to Wishlist
+                                <HeartButton artworkId={this.props.match.params.id} />
                             </div>
                             <div className="contact-artist">
                                 <i class="far fa-envelope"></i> {  }

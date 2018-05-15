@@ -75,3 +75,15 @@ exports.getMatchesByEmail = (email) => {
 exports.getUserInfo = (id) => {
     return db.query('SELECT * FROM users WHERE id = $1', [id])
 }
+
+exports.checkIfFav = (user_id, artwork_id) => {
+    return db.query('SELECT * FROM wishlist WHERE user_id = $1 AND artwork_id = $2', [user_id, artwork_id])
+}
+
+exports.addFav = (user_id, artwork_id) => {
+    return db.query('INSERT INTO wishlist (user_id, artwork_id) VALUES ($1, $2)', [user_id, artwork_id])
+}
+
+exports.deleteFav = (user_id, artwork_id) => {
+    return db.query('DELETE FROM wishlist WHERE user_id = $1 AND artwork_id = $2', [user_id, artwork_id])
+}

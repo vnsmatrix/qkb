@@ -363,7 +363,11 @@ footer {
 /*REGISTER, LOGIN*/
 
 #register-container {
-    
+
+}
+
+.far fa-heart:hover {
+    background-color: fuchsia;
 }
 
 /* @group Blink */

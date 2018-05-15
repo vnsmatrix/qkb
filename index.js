@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+const {addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
 // const meetUps = require('./meetUps')
 // const getEvents = require('./fbEvents')
@@ -343,6 +343,43 @@ app.get('/get-user', (req, res) => {
             })
         })
     }
+})
+
+app.get("/checkIfFav/:artworkId", (req, res) => {
+    console.log("req.session.user.id, req.params.artworkId", req.session.user.id, req.params.artworkId);
+    checkIfFav(req.session.user.id, req.params.artworkId).then(result => {
+        console.log("checkIfFav result.rows", result.rows, result.rows > 0);
+        res.json({
+            success: true,
+            fav: result.rows > 0
+        })
+    }).catch(e => {
+        console.log(e);
+    })
+})
+
+app.post("/addFav/:artworkId", (req, res) => {
+    console.log("req.session.user.id, req.params.artworkId", req.session.user.id, req.params.artworkId);
+    addFav(req.session.user.id, req.params.artworkId).then(result => {
+        console.log("addFav result.rows", result.rows);
+        res.json({
+            success: true
+        })
+    }).catch(e => {
+        console.log(e);
+    })
+})
+
+app.post("/deleteFav/:artworkId", (req, res) => {
+    console.log("req.session.user.id, req.params.artworkId", req.session.user.id, req.params.artworkId);
+    deleteFav(req.session.user.id, req.params.artworkId).then(result => {
+        console.log("deleteFav result.rows", result.rows);
+        res.json({
+            success: true
+        })
+    }).catch(e => {
+        console.log(e);
+    })
 })
 
 
