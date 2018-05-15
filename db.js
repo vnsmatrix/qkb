@@ -87,3 +87,7 @@ exports.addFav = (user_id, artwork_id) => {
 exports.deleteFav = (user_id, artwork_id) => {
     return db.query('DELETE FROM wishlist WHERE user_id = $1 AND artwork_id = $2', [user_id, artwork_id])
 }
+
+exports.getWishlist = (user_id) => {
+    return db.query(`SELECT * FROM artworks LEFT JOIN wishlist ON artworks.id = wishlist.artwork_id WHERE wishlist.user_id = $1`, [user_id]);
+}

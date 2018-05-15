@@ -57,9 +57,7 @@ export default class Illustration extends React.Component {
                             <div className="dets">
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
-                            <div className="fav">
-                                <i class="far fa-heart"></i>
-                            </div>
+
                         </div>
                     </div>
                 )

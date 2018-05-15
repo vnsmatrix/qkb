@@ -4,8 +4,10 @@ import axios from './axios';
 export default class HeartButton extends React.Component {
     constructor(props) {
         super(props);
-        console.log("this.props.artworkId ", this.props.artworkId);
-        this.state = {};
+        console.log("this.props", this.props);
+        this.state = {
+            fav: this.props.fav
+        };
         this.toggleFav = this.toggleFav.bind(this);
     }
 
@@ -32,25 +34,6 @@ export default class HeartButton extends React.Component {
                 console.log("ERROR toggleFav", e);
             })
         }
-    }
-
-    componentDidMount() {
-        axios
-        .get('/checkIfFav/' + this.props.artworkId)
-        .then (resp => {
-            console.log("HeartButton resp axios get checkIfFav", resp);
-            if(resp.data.success) {
-                console.log("success!");
-                this.setState({
-                    fav: resp.data.fav
-                });
-                console.log('fav ', resp.data.fav);
-            } else {
-                this.setState({
-                    error: resp.data.error
-                });
-            }
-        })
     }
 
     render () {

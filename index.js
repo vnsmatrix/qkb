@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+const {getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
 // const meetUps = require('./meetUps')
 // const getEvents = require('./fbEvents')
@@ -89,6 +89,21 @@ app.get('/get-artists', function(req,res) {
 app.get('/get-artworks', function(req,res) {
     getArtworks().then (result => {
         console.log("//////getArtworks result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
+})
+
+app.get('/get-wishlist', function(req,res) {
+    getWishlist(req.session.user.id).then (result => {
+        console.log("//////getWishlist result.rows", result.rows);
         res.json({
             success: true,
             artworks: result.rows
@@ -193,13 +208,21 @@ app.get('/get-mixedmedia', function(req,res) {
 })
 
 app.get('/get-artwork/:id', (req, res) => {
-    getArtworkById(req.params.id).then(result => {
+    Promise.all([
+        getArtworkById(req.params.id),
+        checkIfFav(req.session.user.id, req.params.id)
+    ]).then(result => {
+        console.log('///result[0].rows[0]', result[0].rows[0]);
+        console.log('///result[1].rows', result[1].rows);
+        console.log('fav: result[1].rows.length > 0', result[1].rows.length > 0);
         res.json({
-            artwork: result.rows[0]
+            artwork: result[0].rows[0],
+            fav: result[1].rows.length > 0
         })
     }).catch(e => {
         console.log(e);
     })
+
 })
 
 app.get('/get-artist/:artist', (req, res) => {

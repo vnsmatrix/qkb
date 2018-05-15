@@ -15,7 +15,8 @@ export default class Artwork extends React.Component {
         axios.get(`/get-artwork/${this.props.match.params.id}`).then(resp => {
             console.log("Artwork axios.get resp.data", resp.data);
             this.setState({
-                artwork: resp.data.artwork
+                artwork: resp.data.artwork,
+                fav: resp.data.fav
             })
         }).catch(e => {
             console.log("Artwork component did not mount", e);
@@ -56,7 +57,7 @@ export default class Artwork extends React.Component {
                                 {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€
                             </div>
                             <div className="fav">
-                                <HeartButton artworkId={this.props.match.params.id} />
+                                <HeartButton artworkId={this.props.match.params.id} fav={this.state.fav}/>
                             </div>
                             <div className="contact-artist">
                                 <i class="far fa-envelope"></i> {  }

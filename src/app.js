@@ -19,6 +19,7 @@ import MixedMedia from './mixedmedia';
 import Register from './register';
 import Login from './login';
 import User from './user';
+import Wishlist from './wishlist';
 
 
 export default class App extends React.Component {
@@ -99,6 +100,7 @@ export default class App extends React.Component {
                         <Route path="/register" component={Register} />
                         <Route path="/login" component={Login} />
                         <Route path="/user" component={User} />
+                        <Route path="/wishlist" component={Wishlist} />
                     </div>
                 </div>
 

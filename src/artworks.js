@@ -58,9 +58,6 @@ export default class Artworks extends React.Component {
                             <div className="dets">
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
-                            <div className="fav">
-                                <HeartButton artworkId={artwork.id} />
-                            </div>
                         </div>
                     </div>
                 )

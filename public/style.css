@@ -233,7 +233,7 @@ footer {
 
 /* ARTISTS todo: center imgs*/
 
-.artists, .artworks {
+.artists, .artworks, .wishlist {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
