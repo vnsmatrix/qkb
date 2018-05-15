@@ -22,8 +22,8 @@ export default class Login extends React.Component {
         .then (resp => {
             console.log("resp axios post login", resp);
             if(resp.data.success) {
-                console.log("success");
-                location.replace('/')
+                console.log("login success");
+                location.replace('/user');
             } else {
                 this.setState({
                     error: resp.data.error
@@ -39,7 +39,7 @@ export default class Login extends React.Component {
                 <input name="email" placeholder="email" onChange={this.handleChange} />
                 <input name="pass" placeholder="pass" onChange={this.handleChange} />
                 <button className="submitbtn" onClick={this.submit}>Submit</button>
-                <a href="/welcome">Not a member?</a>
+                <Link to="/register">Not a member?</Link>
             </div>
         );
     }

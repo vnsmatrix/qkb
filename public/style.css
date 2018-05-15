@@ -360,6 +360,12 @@ footer {
     color: fuchsia;
 }
 
+/*REGISTER, LOGIN*/
+
+#register-container {
+    
+}
+
 /* @group Blink */
 .blink {
 	-webkit-animation: blink .75s linear infinite;

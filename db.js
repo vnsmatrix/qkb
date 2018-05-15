@@ -71,3 +71,7 @@ exports.register = (first, last, email, pass) => {
 exports.getMatchesByEmail = (email) => {
     return db.query('SELECT first, last, pass, id FROM users WHERE email = $1', [email])
 }
+
+exports.getUserInfo = (id) => {
+    return db.query('SELECT * FROM users WHERE id = $1', [id])
+}

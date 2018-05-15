@@ -16,6 +16,9 @@ import Poetry from './poetry';
 import Painting from './painting';
 import Illustration from './illustration';
 import MixedMedia from './mixedmedia';
+import Register from './register';
+import Login from './login';
+import User from './user';
 
 
 export default class App extends React.Component {
@@ -56,8 +59,7 @@ export default class App extends React.Component {
                         <Link to="/support">Support</Link>
                          ⟩
                         <div className="nav-h-r">
-                            <Link to="/register"></Link>
-                            <Link to="/login"><i class="far fa-user"></i></Link>
+                            <Link to="/user"><i class="far fa-user"></i></Link>
                             <Link to="/wishlist"><i class="far fa-heart"></i></Link>
                         </div>
                     </div>
@@ -94,7 +96,9 @@ export default class App extends React.Component {
                         <Route path="/mixedmedia" component={MixedMedia} />
                         <Route exact path="/artwork/:id" component={Artwork} />
                         <Route exact path="/artist/:artist" component={Artist} />
-
+                        <Route path="/register" component={Register} />
+                        <Route path="/login" component={Login} />
+                        <Route path="/user" component={User} />
                     </div>
                 </div>
 

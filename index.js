@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+const {getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
 // const meetUps = require('./meetUps')
 // const getEvents = require('./fbEvents')
@@ -254,6 +254,7 @@ app.post("/register", (req, res) => {
                     email: result.rows[0].email,
                     pass: result.rows[0].pass
                 }
+                console.log("REGISTER req.session.user", req.session.user);
                 res.json({
                     success: true
                 })
@@ -295,7 +296,6 @@ app.post("/login", (req, res) => {
                             error: 'Ooops! Wrong pass!'
                         })
                     } else {
-                        console.log(req.session.user);
                         req.session.user = {
                             id: result.rows[0].id,
                             first: result.rows[0].first,
@@ -303,6 +303,7 @@ app.post("/login", (req, res) => {
                             email: result.rows[0].email,
                             pass: result.rows[0].pass
                         }
+                        console.log("LOGIN success req.session.user", req.session.user);
                         res.json({
                             success: true
                         })
@@ -322,6 +323,28 @@ app.post("/login", (req, res) => {
     }
 })
 
+app.get('/get-user', (req, res) => {
+    console.log("/get-user req.session", req.session);
+    if (!req.session.user) {
+        console.log("!req.session.user");
+        res.redirect('/login')
+    } else {
+        console.log("req.session.user", req.session.user);
+        getUserInfo(req.session.user.id).then (result => {
+            console.log("result.rows from getUserInfo", result.rows);
+            res.json({
+                success: true,
+                user: result.rows[0]
+            })
+        }).catch(e => {
+            console.log(e);
+            res.json({
+                success: false
+            })
+        })
+    }
+})
+
 
 //delete session (cookies):
 app.get('/logout', (req, res) => {
@@ -330,11 +353,11 @@ app.get('/logout', (req, res) => {
 })
 
 app.get('/', function(req, res) {
-    if (req.session.user){
-        res.redirect('/')
-    } else {
+    // if (req.session.user){
+    //     res.redirect('/')
+    // } else {
         res.sendFile(__dirname + '/index.html')
-    }
+    // }
 })
 
 //FINAL ROUTE *!

@@ -2,15 +2,18 @@ import React from 'react';
 import axios from './axios';
 import { Link } from 'react-router-dom';
 
-export class Register extends React.Component {
+export default class Register extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {};
         this.handleChange = this.handleChange.bind(this);
         this.submit = this.submit.bind(this);
     }
+
     handleChange(e) {
         this[e.target.name] = e.target.value;
     }
+
     submit() {
         console.log("Register this.props", this.first, this.last, this.email, this.pass);
         axios
@@ -24,7 +27,7 @@ export class Register extends React.Component {
             console.log("resp axios post register", resp);
             if(resp.data.success) {
                 console.log("success!");
-                location.replace('/')
+                location.replace('/user')
             } else {
                 this.setState({
                     error: resp.data.error
@@ -38,7 +41,7 @@ export class Register extends React.Component {
     render() {
         return (
             <div id="register-container">
-                <h2>Sig up!</h2>
+                <h2>Sign up!</h2>
                 {this.state.error && <div className="errmsg">{this.state.error}</div>}
                 <input name="first" placeholder="first name" onChange={this.handleChange} />
                 <input name="last" placeholder="last name" onChange={this.handleChange} />
