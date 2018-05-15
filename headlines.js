@@ -13,7 +13,10 @@ module.exports = function() {
         'queer_sol',
         'queerberlin',
         'queerspiegel',
-        'siegessaeule'
+        'siegessaeule',
+        'Anarcho_Queer',
+        'paroledequeer',
+        'golfxsconppios'
     ]).then(function(data) {
         console.log("got our tweets", data);
         return data.filter(function(item) {

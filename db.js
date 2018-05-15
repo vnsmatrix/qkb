@@ -63,3 +63,11 @@ exports.getArtworksByArtist = (artist) => {
 exports.getArtistByName = (name) => {
     return db.query(`SELECT * FROM artists WHERE name = $1`, [name]);
 }
+
+exports.register = (first, last, email, pass) => {
+    return db.query('INSERT INTO users (first, last, email, pass) VALUES($1, $2, $3, $4) RETURNING *', [first, last, email, pass])
+}
+
+exports.getMatchesByEmail = (email) => {
+    return db.query('SELECT first, last, pass, id FROM users WHERE email = $1', [email])
+}

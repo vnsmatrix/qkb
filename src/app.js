@@ -56,7 +56,9 @@ export default class App extends React.Component {
                         <Link to="/support">Support</Link>
                          ⟩
                         <div className="nav-h-r">
-                            <Link to="/wishlist">♡</Link>
+                            <Link to="/register"></Link>
+                            <Link to="/login"><i class="far fa-user"></i></Link>
+                            <Link to="/wishlist"><i class="far fa-heart"></i></Link>
                         </div>
                     </div>
                     <div className="nav-v">

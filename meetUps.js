@@ -2,8 +2,10 @@ const muApi = require('./muApi');
 
 module.exports = function() {
     return muApi.getMeetUps([
-        'QueerArtBerlin',
-        'siegessaeule'
+        'lgbt',
+        'lgbtq',
+        'queer',
+        'femme'
     ]).then(function(data) {
         console.log("got our meetUps", data);
         return data.filter(function(item) {

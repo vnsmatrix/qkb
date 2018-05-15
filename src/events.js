@@ -23,7 +23,7 @@ export default class Events extends React.Component {
 
     render() {
         console.log('Events render this.state', this.state);
-        if(!this.state.news) {
+        if(!this.state.events) {
             console.log("!this.state.events");
             return (
                 <div className="events-loading">

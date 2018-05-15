@@ -84,6 +84,11 @@ nav {
 
 }
 
+.nav-h-r a {
+    padding: 0px 7px;
+
+}
+
 footer {
     display: block;
     text-align: right;
@@ -271,7 +276,7 @@ footer {
 }
 
 .artwork, .about {
-    margin-bottom: 13px;
+    margin-bottom: 33px;
 }
 
 .modal-img img {
@@ -343,8 +348,16 @@ footer {
 }
 
 .news-loading {
-    margin: 33px;
-    color: lime;
+    margin: 13px;
+    /* color: lime; */
+}
+
+.contact-artist, .fav {
+    margin: 7px 0px;
+}
+
+.contact-artist a:hover, .fav a:hover {
+    color: fuchsia;
 }
 
 /* @group Blink */

@@ -36,7 +36,9 @@ export default class News extends React.Component {
                     console.log("news map", item);
                     return (
                         <div className="news-container">
-                            {item.source}: <a href={item.href} target="_blank">{item.text}</a>
+                            {item.text && <div>
+                                {item.source}: <a href={item.href} target="_blank">{item.text}</a>
+                            </div>}
                         </div>
                     )
                 })}

@@ -58,7 +58,7 @@ export default class Poetry extends React.Component {
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
                             <div className="fav">
-                                ♡
+                                <i class="far fa-heart"></i>
                             </div>
                         </div>
                     </div>

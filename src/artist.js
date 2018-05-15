@@ -45,6 +45,10 @@ export default class Artist extends React.Component {
                             <div className="bio">
                                 {this.state.artist.bio}
                             </div>
+                            <div className="contact-artist">
+                                <i class="far fa-envelope"></i> {  }
+                                <a href="mailto:{this.state.artist.email}">Contact Artist</a>
+                            </div>
                         </div>
                         <div className="artist-artworks">
                             <ArtworksByArtist artist={this.state.artist.name}/>

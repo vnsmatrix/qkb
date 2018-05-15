@@ -55,7 +55,11 @@ export default class Artwork extends React.Component {
                                 {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€
                             </div>
                             <div className="fav">
-                                ♡
+                                <i class="far fa-heart"></i> Add to Wishlist
+                            </div>
+                            <div className="contact-artist">
+                                <i class="far fa-envelope"></i> {  }
+                                <a href="mailto:{this.state.artist.email}">Contact Artist</a>
                             </div>
                         </div>
                     </div>

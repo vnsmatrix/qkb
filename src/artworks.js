@@ -9,6 +9,7 @@ export default class Artworks extends React.Component {
         this.state = {
 
         };
+        this.handleClick = this.submit.handleClick(this);
     }
 
     componentDidMount() {
@@ -21,6 +22,18 @@ export default class Artworks extends React.Component {
         }).catch(e => {
             console.log("component did not mount", e);
         })
+    }
+
+    handleClick() {
+        if(loggedIn) {
+            axios.post('/add-to-wl').then(resp => {
+                console.log("Artworks axios.post resp.data", resp.data);
+                this.setState({
+
+                })
+            })
+        }
+
     }
 
     render() {
@@ -58,7 +71,7 @@ export default class Artworks extends React.Component {
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
                             <div className="fav">
-                                ♡
+                                <i class="far fa-heart" onClick={this.handleClick}></i>
                             </div>
                         </div>
                     </div>

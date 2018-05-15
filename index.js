@@ -7,9 +7,10 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+const {register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
-const meetUps = require('./meetUps')
+// const meetUps = require('./meetUps')
+// const getEvents = require('./fbEvents')
 
 //upload files stuff:
 const multer = require('multer');
@@ -24,8 +25,8 @@ const diskStorage = multer.diskStorage({
         callback(null, __dirname + '/uploads');
     },
     filename: function (req, file, callback) {
-      uidSafe(24).then(function(uid) { //24 is the number of bytes who want the unique id to have, b64 encoded
-          callback(null, uid + path.extname(file.originalname)); //originalname is the name as it was in the user file
+      uidSafe(24).then(function(uid) {
+          callback(null, uid + path.extname(file.originalname));
       });
     }
 });
@@ -33,7 +34,7 @@ const diskStorage = multer.diskStorage({
 var uploader = multer({
     storage: diskStorage,
     limits: {
-        fileSize: 2097152 //2MB
+        fileSize: 2097152
     }
 });
 
@@ -48,10 +49,8 @@ app.use(cookieSession({
 
 app.use(bodyParser());
 
-app.use(compression()); //gzip compression of textual responses
+app.use(compression());
 
-//csurf protection middleware: get the csrf token into a cookie
-//verifies request comes from my site, not from someone else's
 app.use(csurf());
 
 app.use(function(req, res, next){
@@ -61,7 +60,7 @@ app.use(function(req, res, next){
 
 if (process.env.NODE_ENV != 'production') {
     app.use(
-        '/bundle.js', //if url is bundle.js, use:
+        '/bundle.js',
         require('http-proxy-middleware')({
             target: 'http://localhost:8081/'
         })
@@ -234,12 +233,93 @@ app.get('/get-news', (req, res) => {
 })
 
 app.get('/get-events', (req, res) => {
-    meetUps().then(meetUps => {
+    getEvents().then(meetUps => {
         console.log("meetUps", meetUps);
         res.json(meetUps);
     }).catch(e => {
         console.log("error in /get-events", e);
     })
+})
+
+app.post("/register", (req, res) => {
+    console.log("req.body post register", req.body);
+    if (req.body.email && req.body.pass && req.body.first && req.body.last) {
+        hashPassword(req.body.pass).then (result => {
+            register(req.body.first, req.body.last, req.body.email, result).then(result => {
+                console.log("in post register: result.rows[0]", result.rows[0]);
+                req.session.user = {
+                    id: result.rows[0].id,
+                    first: req.body.first,
+                    last: req.body.last,
+                    email: result.rows[0].email,
+                    pass: result.rows[0].pass
+                }
+                res.json({
+                    success: true
+                })
+            }).catch(e => {
+                console.log(e);
+                res.json({
+                    success: false,
+                    error: 'Email already registered. Please log in.'
+                })
+            })
+        }).catch(e => {
+            console.log(e);
+            res.json({
+                success: false
+            })
+        })
+    } else {
+        res.json({
+            success: false,
+            error: 'Please fill all the blanks.'
+        })
+    }
+})
+
+app.post("/login", (req, res) => {
+    if (req.body.email && req.body.pass) {
+        getMatchesByEmail(req.body.email).then(result => {
+            if (result.rows[0] == undefined) {
+                res.json({
+                    success: false,
+                    error: 'Unknown email!'
+                })
+            } else {
+            // console.log(req.body.pass, result.rows[0].pass);
+                checkPassword(req.body.pass, result.rows[0].pass).then(result2 => {
+                    if (result2 == false) {
+                        res.json({
+                            success: false,
+                            error: 'Ooops! Wrong pass!'
+                        })
+                    } else {
+                        console.log(req.session.user);
+                        req.session.user = {
+                            id: result.rows[0].id,
+                            first: result.rows[0].first,
+                            last: result.rows[0].last,
+                            email: result.rows[0].email,
+                            pass: result.rows[0].pass
+                        }
+                        res.json({
+                            success: true
+                        })
+                    }
+                }).catch(e => {
+                    console.log(e);
+                })
+            }
+        }).catch(e => {
+            console.log(e);
+        })
+    } else {
+        res.json({
+            success: false,
+            error: 'Please fill all the blanks.'
+        })
+    }
 })
 
 

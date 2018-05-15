@@ -9,7 +9,8 @@ CREATE TABLE artworks (
     format VARCHAR(333) NOT NULL,
     dets VARCHAR(333) NOT NULL,
     year INTEGER NOT NULL,
-    price INTEGER NOT NULL
+    price INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price) VALUES

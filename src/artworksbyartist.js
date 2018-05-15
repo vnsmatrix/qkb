@@ -42,7 +42,7 @@ export default class ArtworksByArtist extends React.Component {
                                 </Link>
                             </div>
                             <div className="fav">
-                                ♡
+                                <i class="far fa-heart"></i>
                             </div>
                         </div>
                     </div>

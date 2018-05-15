@@ -27,7 +27,7 @@ function getToken() {
     return request({
         method: 'GET',
         host: 'api.meetup.com',
-        path: '/oauth2/token',
+        path: 'oauth2/access',
         auth: 'Basic ' + Buffer(authorization).toString('base64'),
         contentType: 'application/x-www-form-urlencoded;charset=UTF-8',
         body: 'grant_type=client_credentials'
@@ -42,7 +42,7 @@ function getToken() {
 function getMeetUps(token, screenName) {
     return request({
         host: 'api.meetup.com',
-        path: `/1.1/statuses/user_timeline.json?screen_name=${screenName || 'QueerArtBerlin'}`,
+        path: `/find/upcoming_events=${screenName || 'queer'}`,
         auth: 'Bearer ' + token
     }).then(function(data) {
        return JSON.parse(data);
