@@ -10,6 +10,7 @@ export default class Wishlist extends React.Component {
         this.state = {
 
         };
+        this.deleteWishlistItem = this.deleteWishlistItem.bind(this)
     }
 
     componentDidMount() {
@@ -26,6 +27,16 @@ export default class Wishlist extends React.Component {
         }).catch(e => {
             console.log("component did not mount", e);
         })
+    }
+
+    deleteWishlistItem(artworkId) {
+        console.log("running deleteWishlistItem", artworkId);
+        this.setState({
+            artworks: this.state.artworks.filter(item => item.artwork_id != artworkId)
+        })
+
+        console.log(this.state.artworks.filter(item => item != artworkId));
+
     }
 
     render() {
@@ -68,6 +79,8 @@ export default class Wishlist extends React.Component {
                             <div className="dets">
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
+                                <HeartButton artworkId={artwork.artwork_id} wishlistItem={true} deleteWishlistItem={this.deleteWishlistItem}/>
+
                         </div>
                     </div>
                 )

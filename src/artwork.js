@@ -30,7 +30,6 @@ export default class Artwork extends React.Component {
         }
         return (
             <div className="artwork">
-
                     <div className="modal-container">
                         <div className="modal-img">
                             <img src={this.state.artwork.img} />

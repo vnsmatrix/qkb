@@ -11,6 +11,14 @@ export default class HeartButton extends React.Component {
         this.toggleFav = this.toggleFav.bind(this);
     }
 
+    componentDidMount() {
+        if (this.props.wishlistItem) {
+            this.setState ({
+                fav: true
+            })
+        }
+    }
+
     toggleFav() {
         console.log("running toggleFav");
         if(!this.state.fav) {
@@ -24,12 +32,16 @@ export default class HeartButton extends React.Component {
                 console.log("ERROR toggleFav", e);
             })
         } else {
-            console.log("this.state.fav, deleteFav...");
+            console.log("this.state.fav, deleteFav...", this.props.artworkId);
             axios.post('/deleteFav/'+ this.props.artworkId).then(resp => {
                 console.log("HeartButton axios.post deleteFav resp.data", resp.data);
                 this.setState({
                     fav: !this.state.fav
                 })
+            //make this responsive in wishlist
+                if(this.props.wishlistItem) {
+                    this.props.deleteWishlistItem(this.props.artworkId);
+                }
             }).catch(e => {
                 console.log("ERROR toggleFav", e);
             })

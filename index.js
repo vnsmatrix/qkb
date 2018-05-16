@@ -101,25 +101,6 @@ app.get('/get-artworks', function(req,res) {
     })
 })
 
-app.get('/get-wishlist', (req,res) => {
-    if (!req.session.user) {
-        console.log("!req.session.user");
-        res.redirect('/login')
-    }
-    getWishlist(req.session.user.id).then (result => {
-        console.log("//////getWishlist result.rows", result.rows);
-        res.json({
-            success: true,
-            artworks: result.rows
-        })
-    }).catch(e => {
-        console.log(e);
-        res.json({
-            success: false
-        })
-    })
-})
-
 app.get('/get-photography', function(req,res) {
     getPhotography().then (result => {
         console.log("//////getPhotography result.rows", result.rows);
@@ -241,8 +222,25 @@ app.get('/get-artwork/:id', (req, res) => {
         })
 
     }
+})
 
-
+app.get('/get-wishlist', (req,res) => {
+    if (!req.session.user) {
+        console.log("!req.session.user");
+        res.redirect('/login')
+    }
+    getWishlist(req.session.user.id).then (result => {
+        console.log("//////getWishlist result.rows", result.rows);
+        res.json({
+            success: true,
+            artworks: result.rows
+        })
+    }).catch(e => {
+        console.log(e);
+        res.json({
+            success: false
+        })
+    })
 })
 
 app.get('/get-artist/:artist', (req, res) => {
