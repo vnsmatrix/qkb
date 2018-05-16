@@ -25,7 +25,7 @@ export default class News extends React.Component {
             console.log("!this.state.news");
             return (
                 <div className="news-loading">
-                    Getting the freshest LGBTQ+ news from Twitter (EN / ES / DE). Please wait . . .
+                    Getting the freshest LGBTQ+ news from Twitter in four languages (English / Deutsch / Español / Català). Please wait . . .
                 </div>
             )
         }

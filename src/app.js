@@ -49,7 +49,6 @@ export default class App extends React.Component {
                                 <Link to="/poetry">Poetry</Link>
                                 <Link to="/painting">Painting</Link>
                                 <Link to="/illustration">Illustration</Link>
-                                <Link to="/collage">Collage</Link>
                                 <Link to="/mixedmedia">Mixed Media</Link>
                                 </div>
                         </div>

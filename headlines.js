@@ -16,7 +16,8 @@ module.exports = function() {
         'siegessaeule',
         'Anarcho_Queer',
         'paroledequeer',
-        'golfxsconppios'
+        'golfxsconppios',
+        'CridaLGBTI'
     ]).then(function(data) {
         console.log("got our tweets", data);
         return data.filter(function(item) {

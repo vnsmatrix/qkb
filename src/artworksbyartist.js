@@ -41,9 +41,6 @@ export default class ArtworksByArtist extends React.Component {
                                     <img src={artwork.img} />
                                 </Link>
                             </div>
-                            <div className="fav">
-                                <i class="far fa-heart"></i>
-                            </div>
                         </div>
                     </div>
                 )

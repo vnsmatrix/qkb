@@ -42,15 +42,20 @@ export default class Register extends React.Component {
         return (
             <div id="register-container">
                 <h2>Sign up!</h2>
+                <div>
+                    Looks like the beginning of a beautiful friendship <i className="fas fa-heart"></i>
+                </div>
                 {this.state.error && <div className="errmsg">{this.state.error}</div>}
                 <input name="first" placeholder="first name" onChange={this.handleChange} />
                 <input name="last" placeholder="last name" onChange={this.handleChange} />
                 <input name="email" placeholder="email" onChange={this.handleChange} />
                 <input name="pass" placeholder="pass" onChange={this.handleChange} />
                 <button className="submitbtn" onClick={this.submit}>Submit</button>
-                <Link to="/login">
-                    <div>Already a member?</div>
-                </Link>
+                <div>
+                    <Link to="/login">
+                        Already a member?
+                        </Link>
+                </div>
             </div>
         );
     }

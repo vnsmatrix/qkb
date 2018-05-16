@@ -46,7 +46,7 @@ export default class Wishlist extends React.Component {
         }
         if(this.state.artworks.length == 0) {
             return (
-                <div className="news-loading">Your wishlist is empty! Click on the hearts to add artworks to your favourites. </div>
+                <div className="news-loading">Your wishlist is empty! Click on the hearts to keep track of your favourite artworks. </div>
 
             )
         }

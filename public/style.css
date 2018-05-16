@@ -409,6 +409,10 @@ footer {
     background-color: fuchsia;
 }
 
+#login-container div, #register-container div {
+    padding: 13px 0px;
+}
+
 /* @group Blink */
 .blink {
 	-webkit-animation: blink .75s linear infinite;
