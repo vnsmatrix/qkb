@@ -53,7 +53,7 @@ export default class Artwork extends React.Component {
 
                             </div>
                             <div className="year">
-                                ( {this.state.artwork.year} )
+                                {this.state.artwork.year}
                             </div>
                             <div className="dets">
                                 {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€

@@ -91,3 +91,11 @@ exports.deleteFav = (user_id, artwork_id) => {
 exports.getWishlist = (user_id) => {
     return db.query(`SELECT * FROM artworks LEFT JOIN wishlist ON artworks.id = wishlist.artwork_id WHERE wishlist.user_id = $1`, [user_id]);
 }
+
+exports.editName = (id, first, last) => {
+    return db.query(`UPDATE users SET first=$2, last=$3 WHERE id = $1 RETURNING *`, [id, first, last]);
+}
+
+exports.editEmail = (id, email) => {
+    return db.query(`UPDATE users SET email=$2 WHERE id = $1 RETURNING *`, [id, email]);
+}

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+const {editEmail, editName, getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
 // const meetUps = require('./meetUps')
 // const getEvents = require('./fbEvents')
@@ -384,6 +384,47 @@ app.get('/get-user', (req, res) => {
             res.json({
                 success: false
             })
+        })
+    }
+})
+
+app.post("/editname", (req, res) => {
+    console.log(req.body);
+    if (req.body.first && req.body.last) {
+        editName(req.session.user.id, req.body.first, req.body.last).then(result => {
+            console.log("editname results.rows", result.rows);
+            res.json({
+                success: true,
+                first: result.rows[0].first,
+                last: result.rows[0].last
+            })
+        }).catch(e => {
+            console.log(e);
+        })
+    } else {
+        res.json({
+            success: false,
+            error: 'Please fill all the blanks.'
+        })
+    }
+})
+
+app.post("/editemail", (req, res) => {
+    console.log(req.body);
+    if (req.body.email) {
+        editEmail(req.session.user.id, req.body.email).then(result => {
+            console.log("editemail results.rows", result.rows);
+            res.json({
+                success: true,
+                email: result.rows[0].email
+            })
+        }).catch(e => {
+            console.log(e);
+        })
+    } else {
+        res.json({
+            success: false,
+            error: 'Please fill all the blanks.'
         })
     }
 })
