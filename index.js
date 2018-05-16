@@ -212,20 +212,36 @@ app.get('/get-mixedmedia', function(req,res) {
 })
 
 app.get('/get-artwork/:id', (req, res) => {
-    Promise.all([
-        getArtworkById(req.params.id),
-        checkIfFav(req.session.user.id, req.params.id)
-    ]).then(result => {
-        console.log('///result[0].rows[0]', result[0].rows[0]);
-        console.log('///result[1].rows', result[1].rows);
-        console.log('fav: result[1].rows.length > 0', result[1].rows.length > 0);
-        res.json({
-            artwork: result[0].rows[0],
-            fav: result[1].rows.length > 0
+    console.log('///GET ARTWORK req.session.user', req.session.user);
+    if(req.session.user) {
+        Promise.all([
+            getArtworkById(req.params.id),
+            checkIfFav(req.session.user.id, req.params.id)
+        ]).then(result => {
+            console.log('///result[0].rows[0]', result[0].rows[0]);
+            console.log('///result[1].rows', result[1].rows);
+            console.log('fav: result[1].rows.length > 0', result[1].rows.length > 0);
+            res.json({
+                artwork: result[0].rows[0],
+                fav: result[1].rows.length > 0
+            })
+        }).catch(e => {
+            console.log(e);
         })
-    }).catch(e => {
-        console.log(e);
-    })
+    } else {
+        getArtworkById(req.params.id).then(result => {
+            console.log('///getArtworkById result.rows', result.rows);
+
+            res.json({
+                artwork: result.rows[0],
+                fav: 666
+            })
+        }).catch(e => {
+            console.log(e);
+        })
+
+    }
+
 
 })
 

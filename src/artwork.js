@@ -53,14 +53,14 @@ export default class Artwork extends React.Component {
 
                             </div>
                             <div className="year">
-                                {this.state.artwork.year}
+                                ( {this.state.artwork.year} )
                             </div>
                             <div className="dets">
                                 {this.state.artwork.format} / {this.state.artwork.dets} / {this.state.artwork.price}€
                             </div>
-                            <div className="fav">
+                            {this.state.fav !== 666 && <div className="fav">
                                 <HeartButton artworkId={this.props.match.params.id} fav={this.state.fav}/>
-                            </div>
+                            </div>}
                             <div className="contact-artist">
                                 <i class="far fa-envelope"></i> {  }
                                 <a href="mailto:{this.state.artist.email}">Contact Artist</a>

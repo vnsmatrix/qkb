@@ -40,6 +40,7 @@ export default class HeartButton extends React.Component {
         console.log("this.state", this.state)
         return (
             <div>
+                {this.state.fav}
                 {!this.state.fav && <i className="far fa-heart" onClick={this.toggleFav}></i>
                     || this.state.fav && <i className="fas fa-heart" onClick={this.toggleFav}></i>
                 }
