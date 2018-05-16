@@ -29,11 +29,14 @@ export default class Artist extends React.Component {
         }
         return (
             <div className="artist">
-                    <div className="artist-container">
-                        <div className="artist-info">
-                            <div className="modal-img">
-                                <img src={this.state.artist.img} />
+                <div className="artist-container">
+                    <div className="artist-modal">
+
+                        <div className="modal-img">
+                            <img src={this.state.artist.img} />
                             </div>
+                        <div className="artist-info">
+
                             <div className="medium">
                                 <Link to={`/${this.state.artist.medium}`}>
                                     {this.state.artist.medium}
@@ -50,10 +53,11 @@ export default class Artist extends React.Component {
                                 <a href="mailto:{this.state.artist.email}">Contact Artist</a>
                             </div>
                         </div>
-                        <div className="artist-artworks">
-                            <ArtworksByArtist artist={this.state.artist.name}/>
-                        </div>
                     </div>
+                    <div className="artist-artworks">
+                            <ArtworksByArtist artist={this.state.artist.name}/>
+                    </div>
+                </div>
             </div>
         )
     }

@@ -54,14 +54,16 @@ export default class App extends React.Component {
                                 </div>
                         </div>
                         <Link to="/artists">Artists</Link>
-                        <Link to="/events">Events</Link>
+
                         <Link to="/news">News</Link>
                         <Link to="/contact">Contact</Link>
                         <Link to="/support">Support</Link>
                          ⟩
                         <div className="nav-h-r">
+                        <Link to="/wishlist"><i class="fas fa-heart"></i></Link>
                             <Link to="/user"><i class="far fa-user"></i></Link>
-                            <Link to="/wishlist"><i class="far fa-heart"></i></Link>
+
+                            <a href="/logout"><i class="fas fa-sign-out-alt"></i></a>
                         </div>
                     </div>
                     <div className="nav-v">

@@ -101,7 +101,11 @@ app.get('/get-artworks', function(req,res) {
     })
 })
 
-app.get('/get-wishlist', function(req,res) {
+app.get('/get-wishlist', (req,res) => {
+    if (!req.session.user) {
+        console.log("!req.session.user");
+        res.redirect('/login')
+    }
     getWishlist(req.session.user.id).then (result => {
         console.log("//////getWishlist result.rows", result.rows);
         res.json({

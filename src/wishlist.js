@@ -19,6 +19,10 @@ export default class Wishlist extends React.Component {
                 success: resp.data.success,
                 artworks: resp.data.artworks
             })
+            if (!resp.data.success) {
+                console.log("WISHLIST !resp.data.succes REDIRECTING to /login");
+                location.replace('/login')
+            }
         }).catch(e => {
             console.log("component did not mount", e);
         })
@@ -28,6 +32,12 @@ export default class Wishlist extends React.Component {
         console.log('Wishlist render this.state', this.state);
         if(!this.state.artworks) {
             return null;
+        }
+        if(this.state.artworks.length == 0) {
+            return (
+                <div className="news-loading">Your wishlist is empty! Click on the hearts to add artworks to your favourites. </div>
+
+            )
         }
         return (
             <div className="wishlist">

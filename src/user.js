@@ -35,11 +35,12 @@ export default class User extends React.Component {
         }
         return (
             <div id="user">
+                <h1>My Settings</h1>
                 <div>
-                    Hi, {this.state.user.first}!
+                    Name: {this.state.user.first} {this.state.user.last}
                 </div>
                 <div>
-                    Your email: {this.state.user.email}
+                    Email: {this.state.user.email}
                 </div>
                 <div id="logout">
                     <a href="/logout">Sign out?</a>

@@ -279,9 +279,23 @@ footer {
     margin-bottom: 33px;
 }
 
+.modal-container {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* align-items: stretch; */
+
+}
+
+.modal {
+    padding: 33px;
+}
+
 .modal-img img {
     max-width: 90vw;
-    max-height: 70vh;
+    max-height: 90vh;
 }
 
 .about-img-wrapper {
@@ -310,8 +324,9 @@ footer {
 }
 
 .artist-container {
-    display: grid;
-    grid-template-rows: 3fr 2fr;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .artist .modal-img img {
@@ -332,7 +347,22 @@ footer {
 
 .artworks-by-artist .prev-container {
     width: auto;
+}
 
+.artist-artworks {
+    padding: 13px 0px;
+    border-top: 0.1px solid lightgray;
+}
+
+.artist-info {
+    padding: 33px;
+}
+
+.artist-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-bottom: 13px;
 }
 
 .artworks-by-artist img {
@@ -362,8 +392,17 @@ footer {
 
 /*REGISTER, LOGIN*/
 
-#register-container {
+#logout {
+    margin: 13px 0px;
+    color: fuchsia;
+}
 
+#logout a{
+    color: fuchsia;
+}
+
+#logout a:hover{
+    color: lime;
 }
 
 .far fa-heart:hover {

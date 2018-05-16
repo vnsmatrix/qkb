@@ -32,10 +32,11 @@ export default class Artwork extends React.Component {
             <div className="artwork">
 
                     <div className="modal-container">
-                        <div className="modal">
-                            <div className="modal-img">
-                                <img src={this.state.artwork.img} />
+                        <div className="modal-img">
+                            <img src={this.state.artwork.img} />
                             </div>
+
+                        <div className="modal">
                             <div className="medium">
                                 <Link to={`/${this.state.artwork.medium}`}>
                                     {this.state.artwork.medium}
@@ -49,6 +50,7 @@ export default class Artwork extends React.Component {
                                 <Link to={`/artist/${this.state.artwork.artist}`}>
                                     {this.state.artwork.artist}
                                 </Link>
+
                             </div>
                             <div className="year">
                                 {this.state.artwork.year}
