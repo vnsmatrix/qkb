@@ -293,17 +293,21 @@ footer {
 }
 
 .modal-container {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    /* align-items: stretch; */
-
 }
 
+/* .modal {
+    padding: 9px 33px;
+} */
+
 .modal {
-    padding: 33px;
+    padding: 0px 33px;
+}
+
+.modal .medium, .modal .fav, .modal .dets {
+    padding: 7px 0px;
 }
 
 .modal-img img {
@@ -339,7 +343,6 @@ footer {
 .artist-container {
     display: flex;
     flex-direction: column;
-
 }
 
 .artist .modal-img img {
@@ -367,8 +370,12 @@ footer {
     border-top: 0.1px solid lightgray;
 }
 
-.artist-info {
+/* .artist-info {
     padding: 33px;
+} */
+
+.artist-info div {
+    padding: 7px 33px;
 }
 
 .artist-modal {
