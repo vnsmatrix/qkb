@@ -32,11 +32,13 @@ export default class Wishlist extends React.Component {
     deleteWishlistItem(artworkId) {
         console.log("running deleteWishlistItem", artworkId);
         this.setState({
-            artworks: this.state.artworks.filter(item => item.artwork_id != artworkId)
+            artworks: this.state.artworks.filter(item => {
+                console.log("filtering", item.artwork_id, artworkId);
+                return item.artwork_id != artworkId;
+            })
+        }, function() {
+            console.log("new state", this.state.artworks);
         })
-
-        console.log(this.state.artworks.filter(item => item != artworkId));
-
     }
 
     render() {
@@ -79,7 +81,7 @@ export default class Wishlist extends React.Component {
                             <div className="dets">
                                 {artwork.format} / {artwork.dets} / {artwork.price}€
                             </div>
-                                <HeartButton artworkId={artwork.artwork_id} wishlistItem={true} deleteWishlistItem={this.deleteWishlistItem}/>
+                            <HeartButton artworkId={artwork.artwork_id} wishlistItem={true} deleteWishlistItem={this.deleteWishlistItem}/>
 
                         </div>
                     </div>

@@ -9,7 +9,6 @@ const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
 const {editEmail, editName, getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
-// const meetUps = require('./meetUps')
 // const getEvents = require('./fbEvents')
 
 //upload files stuff:

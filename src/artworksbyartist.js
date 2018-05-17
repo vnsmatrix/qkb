@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from './axios';
-
 import {Link} from 'react-router-dom';
 
 export default class ArtworksByArtist extends React.Component {
@@ -30,22 +29,33 @@ export default class ArtworksByArtist extends React.Component {
         }
         return (
             <div className="artworks-by-artist">
-            {this.state.artworks.length > 0 && <p>Artworks:</p>}
-            {this.state.artworks.map(artwork => {
-                return (
-                    <div className="prev-container">
-                        <div className="prev">
-                            <div className="prev-img">
-                                <Link to={`/artwork/${artwork.id}`}
-                                    artwork={artwork}>
-                                    <img src={artwork.img} />
-                                </Link>
+                {this.state.artworks.length > 0 && <p>Artworks:</p>}
+                {this.state.artworks.map(artwork => {
+                    return (
+                        <div className="prev-container">
+                            <div className="prev">
+                                <div className="prev-img">
+                                    <Link to={`/artwork/${artwork.id}`}
+                                        artwork={artwork}>
+                                        <img src={artwork.img} />
+                                    </Link>
+
+                                </div>
+                                <div className="medium">
+                                    <Link to={`/${artwork.medium}`}>
+                                        {artwork.medium}
+                                    </Link>
+                                </div>
+                                <div className="name">
+                                    {artwork.title}
+                                </div>
+                                <div className="dets">
+                                    {artwork.format} / {artwork.dets} / {artwork.price}€
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
-            })}
-
+                    )
+                })}
             </div>
         )
     }
