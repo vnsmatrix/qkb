@@ -3,10 +3,11 @@ const fs = require('fs')
 
 let secrets;
 if (process.env.NODE_ENV == 'production') {
-    secrets = process.env; // in prod the secrets are environment variables
+    secrets = process.env;
 } else {
-    secrets = require('./secrets'); // secrets.json is in .gitignore
+    secrets = require('./secrets');
 }
+
 const client = knox.createClient({
     key: secrets.AWS_KEY,
     secret: secrets.AWS_SECRET,

@@ -1,4 +1,12 @@
-const config = require('./secrets');
+let config;
+
+if(process.env.NODE_ENV == 'production') {
+    config = process.env;
+
+} else {
+    config = require('./secrets')
+}
+
 const request = require('./request');
 
 module.exports.getTweets = function(screenName) {
