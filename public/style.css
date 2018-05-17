@@ -61,7 +61,7 @@ nav {
 }
 
 .nav-h {
-    z-index: 3;
+    z-index: 33333;
     position: fixed;
     top: 13px;
     left: 66px;
@@ -72,7 +72,7 @@ nav {
 }
 
 .nav-h-r {
-    z-index: 3;
+    z-index: 33333;
     position: fixed;
     text-align: right;
     top: 13px;
@@ -96,7 +96,7 @@ footer {
 }
 
 .nav-v {
-    z-index: 3;
+    z-index: 333;
     margin-top: 33px;
     position: fixed;
     left: 0;
@@ -119,7 +119,7 @@ footer {
     position: fixed;
     background:rgba(255,255,255,1);
     width: 100vw;
-    z-index: 1;
+    z-index: 333333;
     left: 0vw;
     padding: 23px 0px 23px 333px;
     border-bottom: 0.1px solid lightgray;
@@ -153,14 +153,6 @@ footer {
     width: 88%;
 }
 
-.home {
-    overflow: hidden;
-    width: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #quote {
     font-style: italic;
     text-align: right;
@@ -168,25 +160,29 @@ footer {
 }
 
 /*HOME*/
+
 #kitties {
     position: relative;
-    width: 100vw;
-    height: 88vh;
+    width: 93vw;
+    height: 87vh;
     overflow: hidden;
     padding: 13px;
+    z-index: -1;
 }
 
 #banner {
+    left: 0;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    z-index: 999999999;
+    width: 100%;
+    height: 88vh;
+    z-index: 0;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 33px;
     text-shadow: 3px solid fuchsia;
+    opacity: 0.8;
 }
 
 .kitty {
@@ -346,7 +342,7 @@ footer {
 }
 
 .artist .modal-img img {
-    max-height: 444px;
+    max-height: 377px;
 }
 
 .artworks-by-artist p {
@@ -432,70 +428,3 @@ footer {
 #login-container div, #register-container div {
     padding: 13px 0px;
 }
-
-/* @group Blink */
-.blink {
-	-webkit-animation: blink .75s linear infinite;
-	-moz-animation: blink .75s linear infinite;
-	-ms-animation: blink .75s linear infinite;
-	-o-animation: blink .75s linear infinite;
-	 animation: blink .75s linear infinite;
-}
-@-webkit-keyframes blink {
-	0% { opacity: 1; }
-	50% { opacity: 1; }
-	50.01% { opacity: 0; }
-	100% { opacity: 0; }
-}
-@-moz-keyframes blink {
-	0% { opacity: 1; }
-	50% { opacity: 1; }
-	50.01% { opacity: 0; }
-	100% { opacity: 0; }
-}
-@-ms-keyframes blink {
-	0% { opacity: 1; }
-	50% { opacity: 1; }
-	50.01% { opacity: 0; }
-	100% { opacity: 0; }
-}
-@-o-keyframes blink {
-	0% { opacity: 1; }
-	50% { opacity: 1; }
-	50.01% { opacity: 0; }
-	100% { opacity: 0; }
-}
-@keyframes blink {
-	0% { opacity: 1; }
-	50% { opacity: 1; }
-	50.01% { opacity: 0; }
-	100% { opacity: 0; }
-}
-/* @end */
-
-/* @rainbow */
-
-@-webkit-keyframes rainbow{
-    20%{color: coral;}
-	40%{color: antiquewhite;}
-	60%{color: #C5EAD2;}
-	80%{color: #a8bfe3;}
-	100%{color: plum;}
-}
-
-@-ms-keyframes rainbow{
-    20%{color: palevioletred;}
-	40%{color: antiquewhite;}
-	60%{color: #C5EAD2;}
-	80%{color: #a8bfe3;}
-	100%{color: plum;}
-}
-
-@keyframes rainbow{
-    20%{color: palevioletred;}
-	40%{color: antiquewhite;}
-	60%{color: #C5EAD2;}
-	80%{color: #a8bfe3;}
-	100%{color: plum;}
-}
-/* @end */

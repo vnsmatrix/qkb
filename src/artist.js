@@ -55,7 +55,7 @@ export default class Artist extends React.Component {
                         </div>
                     </div>
                     <div className="artist-artworks">
-                            <ArtworksByArtist artist={this.state.artist.name}/>
+                        <ArtworksByArtist artist={this.state.artist.name}/>
                     </div>
                 </div>
             </div>

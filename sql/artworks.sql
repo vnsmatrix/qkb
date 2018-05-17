@@ -107,20 +107,20 @@ INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price)
     (10, 'Nil & Karin Romano', 'My Pets Have Eaten Me To Rot Away',
     'https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/30221485_10156229437593550_5544029702202589184_o.jpg?_nc_cat=0&_nc_eui2=AeHST0K6S9Khqt89OqJ9TpB1XM2MqXGtZb5owDJOY50KLkytXzVNMJAYu8zPO_P0aJ49ijyNlXMZvlXb80IaSrjCDBqYK4uamILvk9JfEQSLOA&oh=c12c770050c495224b9ffec53ae20a6d&oe=5B4F6FE4',
     'Painting',
-    '120 x 80 cm',
-    'Original',
+    '90 x 120 cm',
+    'Acrylic on canvas',
     2018,
-    666
+    4500
 );
 
 INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price) VALUES
     (11, 'Nil & Karin Romano', 'Swimming Into A Big Sea Of Fake Emotions',
     'https://scontent-frx5-1.xx.fbcdn.net/v/t1.0-9/28279519_10156108294988550_431056561415440564_n.jpg?_nc_cat=0&_nc_eui2=AeG9wDPTJ21_JLB5EfX46lIS28ng7i86Fkuqwm3nyx_ejEu76VeHMTFYjAUm3W7mRjxTmtn2pCrQT-uHcxlAuEAxK1lykct4s1EbdpSKloxcDw&oh=7995056a5abe6882e3df2423d3cfb01e&oe=5B90DC1C',
     'Painting',
-    '120 x 80 cm',
-    'Original',
+    '120 x 100 cm',
+    'Acrylic on canvas',
     2018,
-    666
+    4500
 );
 
 INSERT INTO artworks (id, artist, title, img, medium, format, dets, year, price) VALUES

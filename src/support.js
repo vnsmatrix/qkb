@@ -13,7 +13,7 @@ export default function Support (props) {
                 Support the artists: <Link to="/artworks">Buy their art!</Link>
             </p>
             <p>
-                Support the platform: <a href="https://www.gofundme.com/support-qkb">Make a donation! </a>
+                Support the platform: <a href="https://www.gofundme.com/support-qkb" target="_blank">Make a donation! </a>
             </p>
 
         </div>
