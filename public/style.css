@@ -181,7 +181,7 @@ footer {
 #banner {
     position: fixed;
     width: 100vw;
-    height: 88vh;
+    height: 100vh;
     z-index: 999999999;
     color: white;
     display: flex;
@@ -192,7 +192,7 @@ footer {
 }
 
 #banner h1 {
-    
+
 }
 
 .kitty {
