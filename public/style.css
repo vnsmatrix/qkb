@@ -6,7 +6,7 @@ body {
     font-family: 'Palanquin', sans-serif;
 }
 
-.strog {
+.strong {
     font-weight: bold;
 }
 
@@ -59,6 +59,7 @@ nav {
 .home-logo:hover {
     background-color: fuchsia;
 }
+
 .nav-h {
     z-index: 3;
     position: fixed;
@@ -68,7 +69,6 @@ nav {
     display: flex;
     flex-flow: row;
     justify-content: space-around;
-    /* border: 1px dotted orange; */
 }
 
 .nav-h-r {
@@ -81,12 +81,10 @@ nav {
     flex-flow: row;
     width: auto;
     margin: 0px 13px;
-
 }
 
 .nav-h-r a {
-    padding: 0px 7px;
-
+    padding: 0px 13px;
 }
 
 footer {
@@ -191,10 +189,6 @@ footer {
     text-shadow: 3px solid fuchsia;
 }
 
-#banner h1 {
-
-}
-
 .kitty {
     position: absolute;
     width: 100%;
@@ -284,10 +278,6 @@ footer {
 .name {
     font-weight: bold;
     font-size: 16px;
-}
-
-.dets {
-
 }
 
 .artworks-by-artist .name {

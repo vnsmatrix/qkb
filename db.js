@@ -9,7 +9,7 @@ if (process.env.DATABASE_URL){
 }
 
 exports.getArtists = () => {
-    return db.query(`SELECT * FROM artists`);
+    return db.query(`SELECT * FROM artists ORDER BY name ASC`);
 }
 
 exports.getArtistsByMedium = (medium) => {

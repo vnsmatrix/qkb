@@ -59,7 +59,7 @@ export default class App extends React.Component {
                         <Link to="/support">Support</Link>
                          ⟩
                         <div className="nav-h-r">
-                        <Link to="/wishlist"><i class="fas fa-heart"></i></Link>
+                            <Link to="/wishlist"><i class="fas fa-heart"></i></Link>
                             <Link to="/user"><i class="far fa-user"></i></Link>
 
                             <a href="/logout"><i class="fas fa-sign-out-alt"></i></a>
@@ -68,8 +68,8 @@ export default class App extends React.Component {
                     <div className="nav-v">
 
                         <a href="https://twitter.com/QueerArtBerlin" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
 
                     </div>
 

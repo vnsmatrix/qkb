@@ -29,7 +29,7 @@ INSERT INTO artists (id, name, email, medium, img, bio) VALUES
 
 INSERT INTO artists (id, name, email, medium, img, bio) VALUES
     (4, 'Lora Mathis', 'lm', 'Poetry',
-    'http://www.antiagency.co.uk/assets/homepage-4-409x620.jpg',
+    'https://static1.squarespace.com/static/544bf66be4b0dd27d7019154/t/5a9f26e2c830252adbaf4519/1520406665768/20901434_164793840736296_727926461128639622_o.jpg?format=1500w',
     'Lora Mathis is a writer, visual artist, zinester, and musician from Southern California. Their first full-length collection The Women Widowed to Themselves was a Pushcart Prize nominee and published in 2015 by Where Are You Press.'
 );
 
