@@ -46,7 +46,14 @@ timer = setTimeout(moveKitties, 3000);
 export default function Home() {
     return (
         <div id="home">
-
+            <div id="banner">
+                <h1>Q</h1>
+                <div>ueer </div>
+                <h1>K</h1>
+                <div>unst </div>
+                <h1>B</h1>
+                <div>erlin</div>
+            </div>
             <div id="kitties">
                 <div className="kitty onscreen">
                     <img src="/1.jpg" />

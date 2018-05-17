@@ -106,11 +106,10 @@ footer {
     flex-flow: row;
     justify-content: space-around;
     writing-mode: vertical-rl;
-    text-orientation: upright;
+    /* text-orientation: upright; */
     margin-left: 13px;
     bottom: 7px;
     height: 133px;
-    color: lightgray;
 }
 
 .nav-v a:hover, .nav-h a:hover {
@@ -147,12 +146,11 @@ footer {
 
 /* CONTENT */
 .content {
-    padding: 0 7px;
     text-align: justify;
     /* border: 1px dotted orange; */
     position: relative;
     top: 66px;
-    left: 66px;
+    left: 55px;
     height: 100%;
     width: 88%;
 }
@@ -178,6 +176,23 @@ footer {
     height: 88vh;
     overflow: hidden;
     padding: 13px;
+}
+
+#banner {
+    position: fixed;
+    width: 100vw;
+    height: 88vh;
+    z-index: 999999999;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 33px;
+    text-shadow: 3px solid fuchsia;
+}
+
+#banner h1 {
+    
 }
 
 .kitty {
