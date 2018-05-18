@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
 const csurf = require('csurf');
 const {hashPassword, checkPassword} = require('./bcrypt')
-const {editEmail, editName, getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
+const {editPass, editEmail, editName, getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('./db')
 const headlines = require('./headlines');
 // const getEvents = require('./fbEvents')
 
@@ -417,6 +417,29 @@ app.post("/editemail", (req, res) => {
             })
         }).catch(e => {
             console.log(e);
+        })
+    } else {
+        res.json({
+            success: false,
+            error: 'Please fill all the blanks.'
+        })
+    }
+})
+
+app.post("/editpass", (req, res) => {
+    if (req.body.pass) {
+        hashPassword(req.body.pass).then(result => {
+            editPass(req.session.user.id, result).then(result => {
+                console.log("editemail results.rows", result.rows);
+                res.json({
+                    success: true,
+                    pass: result.rows[0].pass
+                })
+            }).catch(e => {
+                console.log(e);
+            })
+        }).catch(e => {
+                console.log(e);
         })
     } else {
         res.json({

@@ -99,3 +99,7 @@ exports.editName = (id, first, last) => {
 exports.editEmail = (id, email) => {
     return db.query(`UPDATE users SET email=$2 WHERE id = $1 RETURNING *`, [id, email]);
 }
+
+exports.editPass = (id, pass) => {
+    return db.query(`UPDATE users SET pass=$2 WHERE id = $1 RETURNING *`, [id, pass]);
+}

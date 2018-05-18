@@ -328,8 +328,8 @@ footer {
     color: fuchsia;
 }
 
-#about a:hover, #support a:hover, #contact a:hover {
-    color: lime;
+#about a:hover, #support a:hover, #contact a:hover, .news a:hover {
+    background-color: lime;
 }
 
 .artist-container {
@@ -379,6 +379,11 @@ footer {
 
 .news-container {
     margin: 7px 0px;
+}
+
+.news a, #support a, #contact a{
+    font-size: 15px;
+    color: fuchsia;
 }
 
 .news-container a:hover {

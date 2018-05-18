@@ -70,7 +70,6 @@ export default class Artwork extends React.Component {
                                 <a href="#"><i class="fab fa-facebook"></i></a>
                                 <a href="#"><i class="fab fa-google-plus-square"></i></a>
                                 <a href="#"><i class="fas fa-envelope-square"></i></a>
-
                             </div>
                         </div>
                     </div>

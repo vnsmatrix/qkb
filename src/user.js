@@ -2,6 +2,7 @@ import React from 'react';
 import axios from './axios';
 import EditName from './editname';
 import EditEmail from './editemail';
+import EditPass from './editpass';
 
 export default class User extends React.Component {
     constructor(props) {
@@ -38,16 +39,22 @@ export default class User extends React.Component {
             <div id="user">
                 <h1>My Settings</h1>
                 <div>
+                    Name:
+                    <EditName
+                        first={this.state.user.first}
+                        last={this.state.user.last}
+                        />
+                </div>
+                <div>
                     Email:
                     <EditEmail
                         email={this.state.user.email}
                         />
                 </div>
                 <div>
-                    Name:
-                    <EditName
-                        first={this.state.user.first}
-                        last={this.state.user.last}
+                    Password:
+                    <EditPass
+                        pass={this.state.user.pass}
                         />
                 </div>
 

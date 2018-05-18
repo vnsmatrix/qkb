@@ -8,11 +8,11 @@ export default function About (props) {
         <div id="about">
             <h1>About</h1>
             <p>
-                QKB (Queer Kunst Berlin) is an online multi-disciplinary art platform promoting emerging and established LGTBQ+ talents. We bring you art made by queers, curated by queers, with a strong emphasis in femme, POC, SW, non-binary & trans-made art. A common place and a caring community where we collaborate, nurture and empower each other.
+                QKB (Queer Kunst Berlin) is an online multi-disciplinary art platform promoting emerging and established LGBTQ+ talents. We bring you art made by queers, curated by queers, with a strong emphasis in femme, POC, SW, non-binary & trans-made art. A common place and a caring community where we collaborate, nurture and empower each other.
             </p>
             <h1>Our Mission</h1>
             <p>
-                QKB is not an art merchant. We don't sell art and, most importantly, we don't sell artists. Our aim is to connect queer talents directly with potential buyers. We believe society should support artists so they can give away their art. We believe human beings should support human beings. Working ourselves in art and tech, this is our natural contribution to the LGTBQ+ community. We do not make any profit other than the satisfaction of fostering the queer art scene in Berlin and beyond.
+                QKB is not an art merchant. We don't sell art and, most importantly, we don't sell artists. Our aim is to connect queer talents directly with potential buyers. We believe society should support artists so they can give away their art. We believe human beings should support human beings. Working ourselves in art and tech, this is our natural contribution to the LGBTQ+ community. We do not make any profit other than the satisfaction of fostering the queer art scene in Berlin and beyond.
 
             </p>
             <h1>Join Us</h1>
