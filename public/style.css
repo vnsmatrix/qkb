@@ -294,10 +294,6 @@ footer {
     justify-content: flex-start;
 }
 
-/* .modal {
-    padding: 9px 33px;
-} */
-
 .modal {
     padding: 0px 33px;
 }
@@ -366,10 +362,6 @@ footer {
     border-top: 0.1px solid lightgray;
 }
 
-/* .artist-info {
-    padding: 33px;
-} */
-
 .artist-info div {
     padding: 7px 33px;
 }
@@ -404,6 +396,43 @@ footer {
 
 .contact-artist a:hover, .fav a:hover {
     color: fuchsia;
+}
+
+#support img, #contact img {
+    width: 93vw;
+    padding-top: 13px;
+}
+
+.modal-container .modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.share-item {
+    padding-top: 111px;
+    justify-self: flex-end;
+}
+
+.share-item p{
+    font-weight: bold;
+}
+.share-item a {
+    margin-right: 13px;
+    font-size: 18px;
+}
+
+.share-profile {
+    bottom: 11px;
+    position: relative;
+}
+
+.share-profile p{
+    font-weight: bold;
+}
+
+.share-profile a {
+    margin-right: 21px;
+    font-size: 18px;
 }
 
 /*REGISTER, LOGIN*/

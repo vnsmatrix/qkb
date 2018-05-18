@@ -7,13 +7,14 @@ export default function Contact (props) {
         <div id="contact">
             <h1>Contact</h1>
             <p>
-                For any kind of inquiries, proposals, suggestions, please email:
+                For any kind of inquiries, proposals, suggestions, connections please email:
             </p>
             <p>
             <i class="far fa-envelope"></i> {  }
             <a href="mailto:qkb@protonmail.com">qkb@protonmail.com</a>
 
             </p>
+            <img src="/frida.jpg" />
 
         </div>
     )

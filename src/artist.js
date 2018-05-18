@@ -52,11 +52,21 @@ export default class Artist extends React.Component {
                                 <i class="far fa-envelope"></i> {  }
                                 <a href="mailto:{this.state.artist.email}">Contact Artist</a>
                             </div>
+                            <div className="share-profile">
+                                <p>SHARE THIS PROFILE:</p>
+                                <a href="#"><i class="fab fa-twitter-square"></i></a>
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-square"></i></a>
+                                <a href="#"><i class="fas fa-envelope-square"></i></a>
+
+                            </div>
                         </div>
+
                     </div>
                     <div className="artist-artworks">
                         <ArtworksByArtist artist={this.state.artist.name}/>
                     </div>
+
                 </div>
             </div>
         )

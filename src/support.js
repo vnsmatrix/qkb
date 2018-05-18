@@ -15,6 +15,7 @@ export default function Support (props) {
             <p>
                 Support the platform: <a href="https://www.gofundme.com/support-qkb" target="_blank">Make a donation! </a>
             </p>
+            <img src="/fridas.jpg" />
 
         </div>
     )
