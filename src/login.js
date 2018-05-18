@@ -38,7 +38,7 @@ export default class Login extends React.Component {
                 <div>Keep track of your fav artworks <i className="fas fa-heart"></i></div>
                 {this.state.error && <div className="errmsg">{this.state.error}</div>}
                 <input name="email" placeholder="email" onChange={this.handleChange} />
-                <input name="pass" placeholder="pass" onChange={this.handleChange} />
+                <input name="pass" type="password" placeholder="password" onChange={this.handleChange} />
                 <button className="submitbtn" onClick={this.submit}>Submit</button>
                 <div><Link to="/register">Not a member?</Link></div>
             </div>
