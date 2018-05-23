@@ -1,5 +1,5 @@
-const {hashPassword, checkPassword} = require('../bcrypt')
-const {editPass, editEmail, editName, getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('../db')
+const {hashPassword, checkPassword} = require('../bcrypt');
+const {editPass, editEmail, editName, getWishlist, addFav, deleteFav, checkIfFav, getUserInfo, register, getMatchesByEmail, getArtists, getArtistsByMedium, getArtworks, getArtworkById, getArtistByArtworkId, getPhotography, getPoetry, getIllustration, getPainting, getCollage, getMixedMedia, getArtistByName, getArtworksByArtist} = require('../db');
 const headlines = require('../headlines');
 
 module.exports = app => {
@@ -430,7 +430,7 @@ module.exports = app => {
         // if (req.session.user){
         //     res.redirect('/')
         // } else {
-            res.sendFile('/index.html', { root: '.' })
+            res.sendFile('/index.html', { root: '.' });
         // }
     })
 
@@ -439,7 +439,7 @@ module.exports = app => {
         // if (!req.session.user){
         //     res.redirect('/')
         // } else {
-            res.sendFile('/index.html', { root: '.' })
+            res.sendFile('/index.html', { root: '.' });
         // }
     });
 }
